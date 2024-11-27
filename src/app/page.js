@@ -403,7 +403,7 @@ export default function Home() {
         </motion.section>
 
         <motion.section
-          className="py-24 bg-white rounded-3xl"
+          className="2xl:py-24 py-12 bg-white rounded-3xl"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
