@@ -215,7 +215,6 @@ export default function Home() {
                   playingStates.mainVideo ? "bg-black/0" : "bg-black/30"
                 } hover:bg-black/40 transition-colors`}
                 onClick={() => handlePlayPause("mainVideo")}
-                whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
                 {playingStates.mainVideo ? (
@@ -626,6 +625,25 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.section>
+        <motion.div className="text-center mb-16">
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Voices of Success
+          </motion.h2>
+          <motion.p
+            className="text-gray-600 text-lg max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Step into the world of DirectorsBox through the eyes of our members.
+            Real stories, real impact, real transformation.
+          </motion.p>
+        </motion.div>
         <VideoReel
           videos={[
             "https://profici.co.uk/wp-content/uploads/2024/11/DMR-3-CC.mp4",
