@@ -151,30 +151,19 @@ export default function Home() {
     >
       <main className="container mx-auto space-y-16">
         <motion.div
-          className="flex flex-col items-center gap-8 max-w-4xl mx-auto"
+          className="flex flex-col items-center gap-8 py-12 max-w-4xl mx-auto"
           initial="initial"
           animate="animate"
           variants={fadeIn}
         >
           <motion.div className="text-center" variants={fadeIn}>
             <motion.h1
-              className="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-2"
+              className="text-4xl md:text-4xl font-bold leading-tight text-gray-900 mb-2"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <motion.span
-                className="font-mango text-gray-700 font-normal text-4xl md:text-7xl mt-2"
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
-                DirectorsBox{" "}
-                <span className="text-xl font-sans text-gray-500 ">
-                  By Profici
-                </span>
-              </motion.span>
-              <br /> Not Just Another Networking Group
+              Discreet - Confidential - Exclusive
             </motion.h1>
           </motion.div>
 

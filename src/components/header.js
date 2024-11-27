@@ -35,18 +35,20 @@ const Header = () => {
         </nav>
 
         <Link
-          href="https://profici.co.uk"
+          href="https://directorsbox.co.uk"
           target="_blank"
           rel="noopener noreferrer"
           className="flex-shrink-0 mx-4 md:absolute md:left-1/2 md:transform md:-translate-x-1/2"
         >
-          <Image
-            src="https://profici.co.uk/wp-content/themes/proficinew/assets/images/Proficiblack.svg"
-            alt="Profici Logo"
-            width={150}
-            height={38}
-            className="cursor-pointer"
-          />
+          <span
+            className="font-mango text-gray-700 font-normal text-5xl  mt-2"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
+            DirectorsBox{" "}
+          </span>
+          <span className="text-xs font-sans text-gray-500"> By Profici</span>
         </Link>
 
         <nav className="hidden md:flex items-center space-x-40">
