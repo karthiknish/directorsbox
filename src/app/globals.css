@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+.input[type="submit"] {
+  background-color: #ed3330 !important;
+}
 @layer base {
   :root {
     --radius: 0.5rem;

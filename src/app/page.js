@@ -727,9 +727,9 @@ export default function Home() {
                   transition={{ duration: 0.4 }}
                 >
                   <iframe
-                    src="//profici.co.uk/gfembed/?f=1"
+                    src="//profici.co.uk/gfembed/?f=10"
                     width="100%"
-                    height="600px"
+                    height="900px"
                     frameBorder="0"
                     className="gfiframe"
                     onLoad={(e) => e.target.classList.add("loaded")}
