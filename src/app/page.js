@@ -2,67 +2,117 @@
 import { Button } from "../components/ui/button";
 import { useState, useRef, useEffect } from "react";
 import ReactPlayer from "react-player";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import ExpandableCard from "../components/expandcard";
 import Image from "next/image";
-
+import VideoReel from "../components/reel";
 export default function Home() {
-  const [playing, setPlaying] = useState(false);
+  const [playingStates, setPlayingStates] = useState({
+    mainVideo: false,
+    video1: false,
+    video2: false,
+    video3: false,
+  });
   const playerRef = useRef(null);
   const [showButton, setShowButton] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
 
   const cards = [
     {
-      title: "Monthly Expert Sessions",
+      title: "Donna Scully - Director, Carpenters Group",
+      description: "Elite Women 2023 Award Winner",
+      ctaText: "Learn More",
+      src: "https://profici.co.uk/wp-content/uploads/2024/11/Donna-Scully-Business-Breakfast.jpg",
+      content: () => (
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          A business breakfast featuring Donna Scully, joint Owner/Director at
+          Carpenters Group - one of the UK's leading providers of insurance and
+          legal services. With 30 years of industry experience, Donna was
+          recently recognised as one of Insurance Business UK's Elite Women 2023
+          and secured a place as one of only 13 UK representatives on their
+          global 100 list. During this session, she shared valuable insights
+          from her remarkable career and provided expert advice for business
+          growth and success.
+        </motion.p>
+      ),
+    },
+    {
+      title: "Paul Smith Jr - Former British Super Middleweight Champion",
+      description: "58% Career Knockout Percentage",
+      ctaText: "Learn More",
+      src: "https://profici.co.uk/wp-content/uploads/2024/11/Paul-Smith-Directors-Box.png",
+      content: () => (
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          A business breakfast featuring Paul Smith Jnr, a former British Super
+          Middleweight Champion with an impressive career from 2003 to 2017.
+          Paul claimed the British super-middleweight title twice and challenged
+          for the WBO super-middleweight title, facing the division's top
+          fighters. With a formidable 58% knockout percentage across his career,
+          Paul dominated his opponents through technical skill and raw power.
+          Known for his resilience and tenacity in the ring, Paul shared
+          valuable insights from his remarkable journey in professional boxing
+          and provided expert advice on achieving success through determination
+          and perseverance.
+        </motion.p>
+      ),
+    },
+    {
+      title: "Matt Lumb - Former CEO, Tangle Teezer & Warpaint For Men",
+      description: "Experienced CEO & Business Growth Expert",
+      ctaText: "Learn More",
+      src: "https://profici.co.uk/wp-content/uploads/2022/04/Matt-Lumb-img.jpg",
+      content: () => (
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          A business breakfast featuring Matt Lumb, an accomplished CEO with a
+          proven track record of scaling businesses from startups to
+          multi-million-pound enterprises. As the former CEO of Tangle Teezer
+          and Warpaint For Men, Matt brings invaluable insights into business
+          growth, leadership, and successful scaling strategies. During this
+          session, he shared his extensive experience in transforming innovative
+          ideas into thriving businesses and navigating the challenges of rapid
+          business expansion.
+        </motion.p>
+      ),
+    },
+    {
+      title: "Dan Abrahams - Elite Sport Psychologist",
       description:
-        "Learn from seasoned entrepreneurs who share their experiences",
+        "Mentored Jude Bellingham & HCPC Registered Sport Psychologist",
       ctaText: "Learn More",
-      src: "https://images.unsplash.com/photo-1517502884422-41eaead166d4?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      src: "https://profici.co.uk/wp-content/uploads/2024/11/Dan-Abrahams-Sports-Psychologist-1.jpg",
       content: () => (
-        <p>
-          Learn from seasoned entrepreneurs who share both their successes and
-          failures - get the real story behind building successful businesses.
-        </p>
-      ),
-    },
-    {
-      title: "Strategic Partnerships",
-      description: "Connect with like-minded business owners",
-      ctaText: "Learn More",
-      src: "https://images.unsplash.com/photo-1517502884422-41eaead166d4?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      content: () => (
-        <p>
-          Connect with like-minded business owners to strengthen and grow your
-          business through collaborative opportunities.
-        </p>
-      ),
-    },
-    {
-      title: "Private Events",
-      description: "Access exclusive networking events",
-      ctaText: "Learn More",
-      src: "https://images.unsplash.com/photo-1517502884422-41eaead166d4?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      content: () => (
-        <p>
-          Access exclusive events closed to the public, creating opportunities
-          to connect with fellow business leaders in meaningful ways.
-        </p>
-      ),
-    },
-    {
-      title: "C-Suite Access",
-      description: "Consult with experienced executives",
-      ctaText: "Learn More",
-      src: "https://images.unsplash.com/photo-1517502884422-41eaead166d4?q=80&w=1925&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-      content: () => (
-        <p>
-          Up to 4 monthly consultation meetings with experienced CFOs, CMOs, and
-          CEOs to help guide your business decisions.
-        </p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+        >
+          A business breakfast featuring Dan Abrahams, one of the UK's leading
+          Sport Psychologists. Dan works with individuals, teams, coaches and
+          organisations globally, including mentoring football superstar Jude
+          Bellingham. Known for demystifying sport psychology and creating
+          simple-to-use performance techniques, Dan is the author of four
+          best-selling sport psychology books and founder of both the Dan
+          Abrahams Soccer Academy and The Sport Psych Show podcast. During this
+          session, he shared insights from his extensive experience working with
+          elite athletes and how these principles can be applied to business
+          success.
+        </motion.p>
       ),
     },
   ];
+
   useEffect(() => {
     setIsMobile(window.innerWidth <= 768);
 
@@ -86,12 +136,20 @@ export default function Home() {
       .scrollIntoView({ behavior: "smooth" });
   };
 
-  const handlePlayPause = () => {
-    setPlaying((prev) => !prev);
+  const handlePlayPause = (videoId) => {
+    setPlayingStates((prev) => ({
+      ...prev,
+      [videoId]: !prev[videoId],
+    }));
   };
 
   return (
-    <div className="min-h-screen p-8">
+    <motion.div
+      className="min-h-screen p-8"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+    >
       <main className="container mx-auto space-y-16">
         <motion.div
           className="flex flex-col items-center gap-8 max-w-4xl mx-auto"
@@ -100,16 +158,26 @@ export default function Home() {
           variants={fadeIn}
         >
           <motion.div className="text-center" variants={fadeIn}>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-2">
-              <span className="font-mango text-gray-700 font-normal text-4xl md:text-7xl mt-2">
+            <motion.h1
+              className="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-2"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <motion.span
+                className="font-mango text-gray-700 font-normal text-4xl md:text-7xl mt-2"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+              >
                 DirectorsBox{" "}
                 <span className="font-normal font-sans text-xl text-gray-500 ">
                   By Profici
                 </span>
-              </span>
+              </motion.span>
               <br />
               <br /> Not Just Another Networking Group
-            </h1>
+            </motion.h1>
           </motion.div>
 
           <motion.div
@@ -117,14 +185,19 @@ export default function Home() {
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="relative">
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+            >
               {!isMobile ? (
                 <ReactPlayer
                   url="https://profici.co.uk/wp-content/uploads/2024/11/Directors-Box-Networking.mp4"
                   width="100%"
                   height="100%"
                   ref={playerRef}
-                  playing={playing}
+                  playing={playingStates.mainVideo}
                   controls={false}
                 />
               ) : (
@@ -133,87 +206,126 @@ export default function Home() {
                   width="100%"
                   height="100%"
                   ref={playerRef}
-                  playing={playing}
+                  playing={playingStates.mainVideo}
                   controls={false}
                 />
               )}
-              <button
+              <motion.button
                 className={`absolute inset-0 flex items-center justify-center ${
-                  playing ? "bg-black/0" : "bg-black/30"
+                  playingStates.mainVideo ? "bg-black/0" : "bg-black/30"
                 } hover:bg-black/40 transition-colors`}
-                onClick={handlePlayPause}
+                onClick={() => handlePlayPause("mainVideo")}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
               >
-                {playing ? (
-                  <svg
+                {playingStates.mainVideo ? (
+                  <motion.svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="white"
                     className="w-12 h-12"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 200 }}
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       d="M15.75 5.25v13.5m-7.5-13.5v13.5"
                     />
-                  </svg>
+                  </motion.svg>
                 ) : (
-                  <svg
+                  <motion.svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="white"
                     className="w-12 h-12"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 200 }}
                   >
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347c-.75.412-1.667-.13-1.667-.986V5.653Z"
                     />
-                  </svg>
+                  </motion.svg>
                 )}
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
           </motion.div>
 
           <motion.div
             className="flex flex-col items-center gap-6 max-w-2xl z-10 text-center"
             variants={fadeIn}
           >
-            <p className="text-lg text-gray-600 leading-relaxed">
+            <motion.p
+              className="text-lg text-gray-600 leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
               Born from 15 years of networking experience, The Director's Box is
               an exclusive private members club designed specifically for
               ambitious business owners. We're different because we understand
               that traditional networking isn't enough - you need real value,
               real connections, and real results.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 mt-10">
-              <Button
-                size="lg"
-                className="w-fit"
-                onClick={scrollToConsultation}
+            </motion.p>
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 mt-10"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 1 }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Apply for Membership
-              </Button>
-            </div>
+                <Button
+                  size="lg"
+                  className="w-fit"
+                  onClick={scrollToConsultation}
+                >
+                  Apply for Membership
+                </Button>
+              </motion.div>
+            </motion.div>
           </motion.div>
         </motion.div>
 
         <motion.section
           className="py-24 bg-gray-50 rounded-3xl"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
           <div className="max-w-4xl mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            <motion.h2
+              className="text-3xl md:text-4xl font-bold mb-12 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
               Exclusive Member Benefits
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white p-6 rounded-xl shadow-sm">
+            </motion.h2>
+            <motion.div
+              className="grid md:grid-cols-2 gap-8"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8, staggerChildren: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <motion.div
+                className="bg-white p-6 rounded-xl shadow-sm"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}
+              >
                 <h3 className="text-xl font-bold mb-4">
                   Monthly Expert Sessions
                 </h3>
@@ -222,23 +334,35 @@ export default function Home() {
                   successes and failures - get the real story behind building
                   successful businesses.
                 </p>
-              </div>
-              <div className="bg-white p-6 rounded-xl shadow-sm">
+              </motion.div>
+              <motion.div
+                className="bg-white p-6 rounded-xl shadow-sm"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}
+              >
                 <h3 className="text-xl font-bold mb-4">Private Events</h3>
                 <p className="text-gray-600">
                   Access exclusive events closed to the public, creating
                   opportunities to connect with fellow business leaders in
                   meaningful ways.
                 </p>
-              </div>
-              <div className="bg-white p-6 rounded-xl shadow-sm">
+              </motion.div>
+              <motion.div
+                className="bg-white p-6 rounded-xl shadow-sm"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}
+              >
                 <h3 className="text-xl font-bold mb-4">C-Suite Access</h3>
                 <p className="text-gray-600">
                   Up to 4 monthly consultation meetings with experienced CFOs,
                   CMOs, and CEOs to help guide your business decisions.
                 </p>
-              </div>
-              <div className="bg-white p-6 rounded-xl shadow-sm">
+              </motion.div>
+              <motion.div
+                className="bg-white p-6 rounded-xl shadow-sm"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}
+              >
                 <h3 className="text-xl font-bold mb-4">
                   Strategic Partnerships
                 </h3>
@@ -246,18 +370,40 @@ export default function Home() {
                   Connect with like-minded business owners to strengthen and
                   grow your business through collaborative opportunities.
                 </p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </motion.section>
-        <motion.section className="py-24 bg-white rounded-3xl">
-          <div className="max-w-4xl mx-auto px-4 mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-center">
-              Explore Our Benefits
-            </h2>
+        <motion.section
+          className="py-24  rounded-3xl"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <div className="max-w-6xl mx-auto px-4">
+            <motion.h2
+              className="text-3xl md:text-4xl font-bold mb-12 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              Our Past Spotlight Events
+            </motion.h2>
+            <p className="text-gray-600 text-center mb-8 max-w-3xl mx-auto">
+              We regularly host exclusive business breakfasts and networking
+              events featuring accomplished industry leaders. Our past speakers
+              include senior executives from leading insurance and legal
+              services firms, professional athletes, and other successful
+              business leaders across various sectors. These intimate events
+              provide valuable insights, expert advice, and networking
+              opportunities for our members.
+            </p>
+            <ExpandableCard cards={cards} />
           </div>
-          <ExpandableCard cards={cards} />
         </motion.section>
+
         <motion.section
           className="py-24 bg-white rounded-3xl"
           initial={{ opacity: 0 }}
@@ -266,12 +412,31 @@ export default function Home() {
           viewport={{ once: true }}
         >
           <div className="max-w-4xl mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-              Why Choose The Director's Box?
-            </h2>
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+            <motion.h2
+              className="text-3xl md:text-4xl font-bold mb-12 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              Why Choose The{" "}
+              <span className="font-mango text-3xl md:text-7xl font-normal">
+                DirectorsBox
+              </span>
+            </motion.h2>
+            <motion.div
+              className="grid md:grid-cols-3 gap-8"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8, staggerChildren: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <motion.div
+                className="text-center"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="bg-black w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-8 w-8 text-white"
@@ -292,9 +457,13 @@ export default function Home() {
                   Carefully selected members ensuring meaningful connections and
                   collaborations
                 </p>
-              </div>
-              <div className="text-center">
-                <div className="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              </motion.div>
+              <motion.div
+                className="text-center"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="bg-black w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-8 w-8 text-white"
@@ -315,9 +484,13 @@ export default function Home() {
                   Structured networking designed to generate immediate business
                   opportunities
                 </p>
-              </div>
-              <div className="text-center">
-                <div className="bg-yellow-400 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+              </motion.div>
+              <motion.div
+                className="text-center"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="bg-black w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-8 w-8 text-white"
@@ -337,8 +510,8 @@ export default function Home() {
                 <p className="text-gray-600">
                   Premium resources and opportunities not available elsewhere
                 </p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </motion.section>
 
@@ -350,46 +523,116 @@ export default function Home() {
           viewport={{ once: true }}
         >
           <div className="max-w-4xl mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-              How We're Different
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-white p-8 rounded-xl shadow-sm">
-                <h3 className="text-xl font-bold mb-4">Curated Membership</h3>
-                <p className="text-gray-600">
-                  We carefully select members to ensure a balanced mix of
-                  industries and expertise levels. This creates an environment
-                  where meaningful connections can flourish.
-                </p>
+            <motion.h2
+              className="text-3xl md:text-4xl font-bold mb-12 text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              Your Journey from Membership
+            </motion.h2>
+            <motion.div
+              className="relative"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.8, staggerChildren: 0.2 }}
+              viewport={{ once: true }}
+            >
+              {/* Vertical line */}
+              <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-300 md:left-1/2" />
+
+              <div className="space-y-12">
+                <motion.div className="relative grid md:grid-cols-2 gap-8 md:gap-16">
+                  <div className="md:text-right md:pr-16">
+                    <motion.div
+                      className="bg-white p-8 rounded-xl shadow-sm"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <h3 className="text-xl font-bold mb-4">
+                        Founder Introduction
+                      </h3>
+                      <p className="text-gray-600">
+                        Begin with a personal induction call with our founder.
+                        This is your opportunity to share your business journey,
+                        discuss your goals, and understand how The DirectorsBox
+                        can accelerate your success. We'll ensure there's a
+                        perfect fit between your aspirations and our community.
+                      </p>
+                    </motion.div>
+                  </div>
+                  <div className="hidden md:block" />
+                  {/* Circle marker */}
+                  <div className="absolute left-0 md:left-1/2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black rounded-full transform -translate-x-1/2 flex items-center justify-center">
+                    <span className="text-white text-sm">1</span>
+                  </div>
+                </motion.div>
+
+                <motion.div className="relative grid md:grid-cols-2 gap-8 md:gap-16">
+                  <div className="hidden md:block" />
+                  <div className="md:pl-16">
+                    <motion.div
+                      className="bg-white p-8 rounded-xl shadow-sm"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <h3 className="text-xl font-bold mb-4">
+                        C-Suite Repository Access
+                      </h3>
+                      <p className="text-gray-600">
+                        Upon acceptance, gain immediate access to our exclusive
+                        C-Suite Repository - a carefully curated collection of
+                        resources, case studies, and strategic insights from
+                        successful business leaders. This knowledge base is
+                        continuously updated with fresh content from our network
+                        of industry experts.
+                      </p>
+                    </motion.div>
+                  </div>
+                  {/* Circle marker */}
+                  <div className="absolute left-0 md:left-1/2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black rounded-full transform -translate-x-1/2 flex items-center justify-center">
+                    <span className="text-white text-sm">2</span>
+                  </div>
+                </motion.div>
+
+                <motion.div className="relative grid md:grid-cols-2 gap-8 md:gap-16">
+                  <div className="md:text-right md:pr-16">
+                    <motion.div
+                      className="bg-white p-8 rounded-xl shadow-sm"
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <h3 className="text-xl font-bold mb-4">
+                        Exclusive Events
+                      </h3>
+                      <p className="text-gray-600">
+                        Start receiving invitations to our exclusive member-only
+                        events, including intimate business breakfasts with
+                        industry leaders, strategic networking sessions, and
+                        expert-led workshops. Each event is carefully designed
+                        to deliver maximum value and foster meaningful
+                        connections.
+                      </p>
+                    </motion.div>
+                  </div>
+                  <div className="hidden md:block" />
+                  {/* Circle marker */}
+                  <div className="absolute left-0 md:left-1/2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black rounded-full transform -translate-x-1/2 flex items-center justify-center">
+                    <span className="text-white text-sm">3</span>
+                  </div>
+                </motion.div>
               </div>
-              <div className="bg-white p-8 rounded-xl shadow-sm">
-                <h3 className="text-xl font-bold mb-4">
-                  Structured Networking
-                </h3>
-                <p className="text-gray-600">
-                  Our events follow a proven format that maximizes valuable
-                  interactions. No more awkward small talk - just focused,
-                  productive conversations.
-                </p>
-              </div>
-              <div className="bg-white p-8 rounded-xl shadow-sm">
-                <h3 className="text-xl font-bold mb-4">Ongoing Support</h3>
-                <p className="text-gray-600">
-                  Beyond events, members receive year-round support through our
-                  online platform, resource library, and dedicated relationship
-                  managers.
-                </p>
-              </div>
-              <div className="bg-white p-8 rounded-xl shadow-sm">
-                <h3 className="text-xl font-bold mb-4">Measurable Results</h3>
-                <p className="text-gray-600">
-                  We track and measure the success of connections made, ensuring
-                  that your membership delivers real business value and ROI.
-                </p>
-              </div>
-            </div>
+            </motion.div>
           </div>
         </motion.section>
+        <VideoReel
+          videos={[
+            "https://profici.co.uk/wp-content/uploads/2024/11/DMR-3-CC.mp4",
+            "https://profici.co.uk/wp-content/uploads/2024/11/DMR-Event-Video.mp4",
+            "https://profici.co.uk/wp-content/uploads/2024/11/DMR-Event-1-CC.mp4",
+          ]}
+        />
 
         <motion.section
           id="consultation"
@@ -400,55 +643,97 @@ export default function Home() {
           viewport={{ once: true }}
         >
           <div className="max-w-4xl mx-auto text-center px-4">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">
+            <motion.h2
+              className="text-3xl md:text-4xl font-bold mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
               Join The Director's Box
-            </h2>
-            <p className="text-gray-300 mb-6">
+            </motion.h2>
+            <motion.p
+              className="text-gray-300 mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
               Take the first step towards joining an exclusive community of
               successful business owners. Apply now to see if you qualify for
               membership in this carefully curated group.
-            </p>
-            <p className="text-gray-400 mb-12 text-sm">
+            </motion.p>
+            <motion.p
+              className="text-gray-400 mb-12 text-sm"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
               Limited membership spots available - Apply today
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              {showButton && (
-                <Button
-                  size="lg"
-                  className="bg-white text-gray-900 hover:bg-gray-100"
-                  onClick={() => setShowButton(false)}
+            </motion.p>
+            <motion.div
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <AnimatePresence>
+                {showButton && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.8 }}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Button
+                      size="lg"
+                      className="bg-white text-gray-900 hover:bg-gray-100"
+                      onClick={() => setShowButton(false)}
+                    >
+                      Apply Now
+                    </Button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+            <AnimatePresence>
+              {!showButton && (
+                <motion.div
+                  className="gfiframe bg-white border border-gray-200 rounded-xl relative"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.4 }}
                 >
-                  Apply Now
-                </Button>
+                  <iframe
+                    src="//profici.co.uk/gfembed/?f=1"
+                    width="100%"
+                    height="600px"
+                    frameBorder="0"
+                    className="gfiframe"
+                    onLoad={(e) => e.target.classList.add("loaded")}
+                  ></iframe>
+                  <div className="absolute inset-0 flex items-center justify-center bg-white transition-opacity duration-300 iframe-loading">
+                    <div className="w-12 h-12 border-4 border-gray-300 border-t-gray-900 rounded-full animate-spin"></div>
+                  </div>
+                  <style jsx>{`
+                    .iframe-loading {
+                      opacity: 1;
+                    }
+                    .loaded + .iframe-loading {
+                      opacity: 0;
+                      pointer-events: none;
+                    }
+                  `}</style>
+                </motion.div>
               )}
-            </div>
-            {!showButton && (
-              <div className="gfiframe bg-white border border-gray-200 rounded-xl relative">
-                <iframe
-                  src="//profici.co.uk/gfembed/?f=1"
-                  width="100%"
-                  height="600px"
-                  frameBorder="0"
-                  className="gfiframe"
-                  onLoad={(e) => e.target.classList.add("loaded")}
-                ></iframe>
-                <div className="absolute inset-0 flex items-center justify-center bg-white transition-opacity duration-300 iframe-loading">
-                  <div className="w-12 h-12 border-4 border-gray-300 border-t-gray-900 rounded-full animate-spin"></div>
-                </div>
-                <style jsx>{`
-                  .iframe-loading {
-                    opacity: 1;
-                  }
-                  .loaded + .iframe-loading {
-                    opacity: 0;
-                    pointer-events: none;
-                  }
-                `}</style>
-              </div>
-            )}
+            </AnimatePresence>
           </div>
         </motion.section>
       </main>
-    </div>
+    </motion.div>
   );
 }
