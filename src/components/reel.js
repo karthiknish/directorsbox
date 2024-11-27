@@ -4,7 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import ReactPlayer from "react-player";
 
-const VideoReel = ({ videos }) => {
+const VideoReel = ({ videos, posters }) => {
   const [playingStates, setPlayingStates] = useState(
     Object.fromEntries(videos.map((_, i) => [`video${i + 1}`, false]))
   );
@@ -42,7 +42,7 @@ const VideoReel = ({ videos }) => {
                 controls={false}
               />
               <motion.button
-                className={`absolute inset-0 flex items-center justify-center ${
+                className={`absolute inset-0 flex items-center z-10 justify-center ${
                   playingStates[videoId] ? "bg-transparent" : "bg-black/30"
                 } hover:bg-black/40 transition-colors`}
                 onClick={() => handlePlayPause(videoId)}
@@ -85,6 +85,12 @@ const VideoReel = ({ videos }) => {
                   </motion.svg>
                 )}
               </motion.button>
+              <img
+                src={posters[index]}
+                alt="Video thumbnail"
+                className="absolute inset-0 w-full h-full object-cover"
+                style={{ display: playingStates[videoId] ? "none" : "block" }}
+              />
             </div>
           </motion.div>
         );

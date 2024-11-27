@@ -649,6 +649,11 @@ export default function Home() {
             "https://profici.co.uk/wp-content/uploads/2024/11/Jamie-DB-Event-Testimonial-1.mp4",
             "https://profici.co.uk/wp-content/uploads/2024/11/DMR-Event-1-CC-1-1.mp4",
           ]}
+          posters={[
+            "https://profici.co.uk/wp-content/uploads/2024/11/Alisha-Thumb.png",
+            "https://profici.co.uk/wp-content/uploads/2024/11/dan-summers-thumb.png",
+            "https://profici.co.uk/wp-content/uploads/2024/11/Daniel-Thumb.png",
+          ]}
         />
         <Pdf />
         <motion.section
