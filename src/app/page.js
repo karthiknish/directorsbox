@@ -4,8 +4,8 @@ import { useState, useRef, useEffect } from "react";
 import ReactPlayer from "react-player";
 import { motion, AnimatePresence } from "framer-motion";
 import ExpandableCard from "../components/expandcard";
-import Image from "next/image";
 import VideoReel from "../components/reel";
+import Pdf from "../components/pdf";
 export default function Home() {
   const [playingStates, setPlayingStates] = useState({
     mainVideo: false,
@@ -651,7 +651,7 @@ export default function Home() {
             "https://profici.co.uk/wp-content/uploads/2024/11/DMR-Event-1-CC-1-1.mp4",
           ]}
         />
-
+        <Pdf />
         <motion.section
           id="consultation"
           className="py-24 bg-black text-white rounded-3xl"
