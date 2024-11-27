@@ -170,9 +170,7 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.4 }}
               >
                 DirectorsBox{" "}
-                <span className="font-normal font-sans text-xl text-gray-500 ">
-                  By Profici
-                </span>
+                <span className="text-xl text-gray-500 ">By Profici</span>
               </motion.span>
               <br /> Not Just Another Networking Group
             </motion.h1>
