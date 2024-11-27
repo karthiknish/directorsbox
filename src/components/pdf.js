@@ -19,7 +19,7 @@ export default function BrochureDownload() {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          Download Our Events Brochure
+          Download Our Brochure
         </motion.h2>
         <motion.p
           className="text-gray-600 mb-8"

@@ -374,7 +374,7 @@ export default function Home() {
           </div>
         </motion.section>
         <motion.section
-          className="py-24  rounded-3xl"
+          className="py-12  rounded-3xl"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
@@ -419,7 +419,7 @@ export default function Home() {
               viewport={{ once: true }}
             >
               Why Choose The{" "}
-              <span className="font-mango text-3xl md:text-7xl font-normal">
+              <span className="font-mango text-5xl md:text-7xl font-normal">
                 DirectorsBox
               </span>
             </motion.h2>
