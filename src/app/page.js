@@ -672,7 +672,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              Join The Director's Box
+              Join The DirectorsBox
             </motion.h2>
             <motion.p
               className="text-gray-300 mb-6"
