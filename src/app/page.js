@@ -19,8 +19,8 @@ export default function Home() {
 
   const cards = [
     {
-      title: "Donna Scully - Director, Carpenters Group",
-      description: "Elite Women 2023 Award Winner",
+      title: "Donna Scully",
+      description: "Director, Carpenters Group",
       ctaText: "Learn More",
       src: "https://profici.co.uk/wp-content/uploads/2024/11/Donna-Scully-Business-Breakfast.jpg",
       content: () => (
@@ -41,8 +41,8 @@ export default function Home() {
       ),
     },
     {
-      title: "Paul Smith Jr - Former British Super Middleweight Champion",
-      description: "58% Career Knockout Percentage",
+      title: "Paul Smith Jr",
+      description: "Former British Super Middleweight Champion",
       ctaText: "Learn More",
       src: "https://profici.co.uk/wp-content/uploads/2024/11/Paul-Smith-Directors-Box.png",
       content: () => (
@@ -65,8 +65,8 @@ export default function Home() {
       ),
     },
     {
-      title: "Matt Lumb - Former CEO, Tangle Teezer & Warpaint For Men",
-      description: "Experienced CEO & Business Growth Expert",
+      title: "Matt Lumb",
+      description: "Former CEO, Tangle Teezer & Warpaint For Men",
       ctaText: "Learn More",
       src: "https://profici.co.uk/wp-content/uploads/2022/04/Matt-Lumb-img.jpg",
       content: () => (
@@ -87,8 +87,8 @@ export default function Home() {
       ),
     },
     {
-      title: "Dan Abrahams - Elite Sport Psychologist",
-      description: "Mentored Jude Bellingham",
+      title: "Dan Abrahams",
+      description: "Elite Sport Psychologist",
       ctaText: "Learn More",
       src: "https://profici.co.uk/wp-content/uploads/2024/11/Dan-Abrahams-Sports-Psychologist-1.jpg",
       content: () => (
@@ -174,7 +174,6 @@ export default function Home() {
                   By Profici
                 </span>
               </motion.span>
-              <br />
               <br /> Not Just Another Networking Group
             </motion.h1>
           </motion.div>
