@@ -4,6 +4,17 @@ import Script from "next/script";
 import Header from "../components/header";
 import Footer from "../components/footer";
 
+const mango = localFont({
+  src: [
+    {
+      path: "./fonts/Mango.otf",
+      style: "normal",
+      weight: "400",
+    },
+  ],
+  variable: "--font-mango",
+});
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -58,7 +69,7 @@ export default function RootLayout({ children }) {
       </head>
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${mango.variable} font-sans antialiased`}
       >
         <Header />
         {children}

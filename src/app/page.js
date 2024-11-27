@@ -63,13 +63,15 @@ export default function Home() {
       ),
     },
   ];
-
   useEffect(() => {
     setIsMobile(window.innerWidth <= 768);
 
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const fadeIn = {
@@ -98,9 +100,15 @@ export default function Home() {
           variants={fadeIn}
         >
           <motion.div className="text-center" variants={fadeIn}>
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-6">
-              Not Just Another Networking Group{" "}
-              <span className="text-yellow-400">The Director's Box</span>
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight text-gray-900 mb-2">
+              <span className="font-mango text-gray-700 font-normal text-4xl md:text-7xl mt-2">
+                DirectorsBox{" "}
+                <span className="font-normal font-sans text-xl text-gray-500 ">
+                  By Profici
+                </span>
+              </span>
+              <br />
+              <br /> Not Just Another Networking Group
             </h1>
           </motion.div>
 
