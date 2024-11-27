@@ -646,9 +646,9 @@ export default function Home() {
         </motion.div>
         <VideoReel
           videos={[
-            "https://profici.co.uk/wp-content/uploads/2024/11/DMR-3-CC.mp4",
+            "https://profici.co.uk/wp-content/uploads/2024/11/DMR-3-CC-1-1.mp4",
             "https://profici.co.uk/wp-content/uploads/2024/11/DMR-Event-Video.mp4",
-            "https://profici.co.uk/wp-content/uploads/2024/11/DMR-Event-1-CC.mp4",
+            "https://profici.co.uk/wp-content/uploads/2024/11/DMR-Event-1-CC-1-1.mp4",
           ]}
         />
 
