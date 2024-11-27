@@ -105,7 +105,7 @@ export default function ExpandableCard({ cards }) {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="text-neutral-600 text-sm md:text-base lg:text-lg pb-10 flex flex-col items-start gap-4 overflow-auto dark:text-neutral-400 [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] max-h-[40vh] md:max-h-[50vh]"
+                    className="text-neutral-600 text-sm md:text-base lg:text-lg pb-10 flex flex-col items-start gap-4 overflow-scroll dark:text-neutral-400 [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] max-h-[40vh] md:max-h-[50vh]"
                   >
                     {typeof active.content === "function"
                       ? active.content()
