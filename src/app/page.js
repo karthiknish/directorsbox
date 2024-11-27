@@ -88,8 +88,7 @@ export default function Home() {
     },
     {
       title: "Dan Abrahams - Elite Sport Psychologist",
-      description:
-        "Mentored Jude Bellingham & HCPC Registered Sport Psychologist",
+      description: "Mentored Jude Bellingham",
       ctaText: "Learn More",
       src: "https://profici.co.uk/wp-content/uploads/2024/11/Dan-Abrahams-Sports-Psychologist-1.jpg",
       content: () => (
@@ -646,8 +645,8 @@ export default function Home() {
         </motion.div>
         <VideoReel
           videos={[
-            "https://profici.co.uk/wp-content/uploads/2024/11/DMR-3-CC-1-1.mp4",
             "https://profici.co.uk/wp-content/uploads/2024/11/DMR-Event-Video.mp4",
+            "https://profici.co.uk/wp-content/uploads/2024/11/Instagram-Video-Download-1.mp4",
             "https://profici.co.uk/wp-content/uploads/2024/11/DMR-Event-1-CC-1-1.mp4",
           ]}
         />
