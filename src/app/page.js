@@ -142,18 +142,6 @@ export default function Home() {
     }));
   };
 
-  useEffect(() => {
-    const handleClick = () => {
-      scrollToConsultation();
-    };
-
-    document.addEventListener("click", handleClick);
-
-    return () => {
-      document.removeEventListener("click", handleClick);
-    };
-  }, []);
-
   return (
     <motion.div
       className="min-h-screen p-8"
@@ -292,6 +280,7 @@ export default function Home() {
                 <Button
                   size="lg"
                   className="w-fit"
+                  data-scroll-trigger="true"
                   onClick={(e) => {
                     e.stopPropagation();
                     scrollToConsultation();
@@ -338,9 +327,10 @@ export default function Home() {
               >
                 <h3 className="text-xl font-bold mb-4">VIP Events</h3>
                 <p className="text-gray-600">
-                  Access exclusive closed-circle private events, creating
-                  opportunities to connect with fellow business leaders in
-                  meaningful ways.
+                  Access exclusive private events including business breakfasts,
+                  networking dinners, and VIP sporting events. Connect with
+                  fellow business leaders in intimate settings designed for
+                  meaningful relationship building.
                 </p>
               </motion.div>
               <motion.div
@@ -350,10 +340,11 @@ export default function Home() {
               >
                 <h3 className="text-xl font-bold mb-4">Concierge Service</h3>
                 <p className="text-gray-600">
-                  Access exclusive services including Art Acquisition &
-                  Brokerage, Restaurant Liaison, Wine Liaison, Wealth & Mortgage
-                  Advisory, Travel Planning and more - all designed to enhance
-                  your business and lifestyle experience.
+                  Access exclusive concierge services including priority
+                  restaurant reservations, luxury travel planning, wealth
+                  advisory, and property investment consultation. Our dedicated
+                  team ensures white-glove service and privileged access across
+                  all offerings.
                 </p>
               </motion.div>
               <motion.div
@@ -379,8 +370,11 @@ export default function Home() {
                   Strategic Partnerships
                 </h3>
                 <p className="text-gray-600">
-                  Connect with like-minded business owners to strengthen and
-                  grow your business through collaborative opportunities.
+                  Connect with like-minded business owners through our strategic
+                  partnership program. We facilitate meaningful connections
+                  between complementary businesses, enabling joint ventures and
+                  resource sharing. Access our network of vetted business
+                  leaders to create opportunities for growth.
                 </p>
               </motion.div>
             </motion.div>
