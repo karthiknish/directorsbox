@@ -272,12 +272,12 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              Born from 15 years of networking experience, The Director's Box is
-              an exclusive private members club designed specifically for
-              ambitious business owners. With a membership fee of £2,000 per
-              month, gain access to a network that's different because we
-              understand that traditional networking isn't enough - you need
-              real value, real connections, and real results.
+              Born from the realization that Traditional Networking Events fall
+              short, The Directors Box is an Exclusive Private Members' Club
+              created for Ambitious Business Leaders, offering a Sophisticated
+              Platform where Genuine Value, Meaningful Connections, and
+              Impactful Results converge. Experience a New Standard in Community
+              Building—designed to elevate your Professional Success.
             </motion.p>
             <motion.div
               className="flex flex-col sm:flex-row gap-4 mt-10"
@@ -297,7 +297,7 @@ export default function Home() {
                     scrollToConsultation();
                   }}
                 >
-                  Apply for £2,000/month Membership
+                  Apply for Your Membership
                 </Button>
               </motion.div>
             </motion.div>
@@ -336,23 +336,9 @@ export default function Home() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
               >
-                <h3 className="text-xl font-bold mb-4">
-                  Monthly Expert Sessions
-                </h3>
+                <h3 className="text-xl font-bold mb-4">VIP Events</h3>
                 <p className="text-gray-600">
-                  Learn from seasoned entrepreneurs who share both their
-                  successes and failures - get the real story behind building
-                  successful businesses.
-                </p>
-              </motion.div>
-              <motion.div
-                className="bg-white p-6 rounded-xl shadow-sm"
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
-                <h3 className="text-xl font-bold mb-4">Private Events</h3>
-                <p className="text-gray-600">
-                  Access exclusive events closed to the public, creating
+                  Access exclusive closed-circle private events, creating
                   opportunities to connect with fellow business leaders in
                   meaningful ways.
                 </p>
@@ -362,10 +348,26 @@ export default function Home() {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.2 }}
               >
-                <h3 className="text-xl font-bold mb-4">C-Suite Access</h3>
+                <h3 className="text-xl font-bold mb-4">Concierge Service</h3>
                 <p className="text-gray-600">
-                  Up to 4 monthly consultation meetings with experienced CFOs,
-                  CMOs, and CEOs to help guide your business decisions.
+                  Access exclusive services including Art Acquisition &
+                  Brokerage, Restaurant Liaison, Wine Liaison, Wealth & Mortgage
+                  Advisory, Travel Planning and more - all designed to enhance
+                  your business and lifestyle experience.
+                </p>
+              </motion.div>
+              <motion.div
+                className="bg-white p-6 rounded-xl shadow-sm"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}
+              >
+                <h3 className="text-xl font-bold mb-4">C-Suite Repository</h3>
+                <p className="text-gray-600">
+                  Get Exclusive access to Our C-suite worth £1500 for free. Gain
+                  insights from seasoned industry veterans with a proven track
+                  record of success. Enjoy 4 high-level business consultancy and
+                  integration sessions with our network of distinguished CFOs,
+                  CEOs, and CMOs.
                 </p>
               </motion.div>
               <motion.div
