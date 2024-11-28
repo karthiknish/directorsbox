@@ -257,9 +257,10 @@ export default function Home() {
             >
               Born from 15 years of networking experience, The Director's Box is
               an exclusive private members club designed specifically for
-              ambitious business owners. We're different because we understand
-              that traditional networking isn't enough - you need real value,
-              real connections, and real results.
+              ambitious business owners. With a membership fee of £2,000 per
+              month, gain access to a network that's different because we
+              understand that traditional networking isn't enough - you need
+              real value, real connections, and real results.
             </motion.p>
             <motion.div
               className="flex flex-col sm:flex-row gap-4 mt-10"
@@ -276,7 +277,7 @@ export default function Home() {
                   className="w-fit"
                   onClick={scrollToConsultation}
                 >
-                  Apply for Membership
+                  Apply for £2,000/month Membership
                 </Button>
               </motion.div>
             </motion.div>
@@ -299,6 +300,9 @@ export default function Home() {
               viewport={{ once: true }}
             >
               Exclusive Member Benefits
+              <span className="block text-xl mt-2 text-gray-600">
+                Included in your £2,000 monthly membership
+              </span>
             </motion.h2>
             <motion.div
               className="grid md:grid-cols-2 gap-8"
@@ -633,7 +637,7 @@ export default function Home() {
         </motion.div>
         <VideoReel
           videos={[
-            "https://profici.co.uk/wp-content/uploads/2024/11/DMR-Event-Video.mp4",
+            "https://profici.co.uk/wp-content/uploads/2024/11/DMR-Event-Video-1.mp4",
             "https://profici.co.uk/wp-content/uploads/2024/11/Jamie-DB-Event-Testimonial-1.mp4",
             "https://profici.co.uk/wp-content/uploads/2024/11/DMR-Event-1-CC-1-1.mp4",
           ]}
@@ -670,8 +674,9 @@ export default function Home() {
               viewport={{ once: true }}
             >
               Take the first step towards joining an exclusive community of
-              successful business owners. Apply now to see if you qualify for
-              membership in this carefully curated group.
+              successful business owners. For just £2,000 per month, you can
+              apply to see if you qualify for membership in this carefully
+              curated group.
             </motion.p>
             <motion.p
               className="text-gray-400 mb-12 text-sm"
