@@ -689,9 +689,8 @@ export default function Home() {
               viewport={{ once: true }}
             >
               Take the first step towards joining an exclusive community of
-              successful business owners. For just £2,000 per month, you can
-              apply to see if you qualify for membership in this carefully
-              curated group.
+              successful business owners. You can apply to see if you qualify
+              for membership in this carefully curated group.
             </motion.p>
             <motion.p
               className="text-gray-400 mb-12 text-sm"
