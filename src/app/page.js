@@ -260,7 +260,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              Born from the realization that Traditional Networking Events fall
+              Born from the realisation that Traditional Networking Events fall
               short, The Directors Box is an Exclusive Private Members' Club
               created for Ambitious Business Leaders, offering a Sophisticated
               Platform where Genuine Value, Meaningful Connections, and
@@ -583,16 +583,14 @@ export default function Home() {
                       whileHover={{ scale: 1.02 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <h3 className="text-xl font-bold mb-4">
-                        C-Suite Repository Access
-                      </h3>
+                      <h3 className="text-xl font-bold mb-4">C-Suite Access</h3>
                       <p className="text-gray-600">
-                        Upon acceptance, gain immediate access to our exclusive
-                        C-Suite Repository - a carefully curated collection of
-                        resources, case studies, and strategic insights from
-                        successful business leaders. This knowledge base is
-                        continuously updated with fresh content from our network
-                        of industry experts.
+                        Upon acceptance, gain direct access to our network of
+                        distinguished C-suite executives, successful
+                        entrepreneurs and industry leaders. Benefit from regular
+                        one-on-one consultations, mentoring sessions, and
+                        strategic guidance from experienced business veterans
+                        who have built and scaled successful companies.
                       </p>
                     </motion.div>
                   </div>
