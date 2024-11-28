@@ -142,6 +142,18 @@ export default function Home() {
     }));
   };
 
+  useEffect(() => {
+    const handleClick = () => {
+      scrollToConsultation();
+    };
+
+    document.addEventListener("click", handleClick);
+
+    return () => {
+      document.removeEventListener("click", handleClick);
+    };
+  }, []);
+
   return (
     <motion.div
       className="min-h-screen p-8"
@@ -201,7 +213,10 @@ export default function Home() {
                 className={`absolute inset-0 flex items-center justify-center ${
                   playingStates.mainVideo ? "bg-black/0" : "bg-black/30"
                 } hover:bg-black/40 transition-colors`}
-                onClick={() => handlePlayPause("mainVideo")}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handlePlayPause("mainVideo");
+                }}
                 whileTap={{ scale: 0.95 }}
               >
                 {playingStates.mainVideo ? (
@@ -277,7 +292,10 @@ export default function Home() {
                 <Button
                   size="lg"
                   className="w-fit"
-                  onClick={scrollToConsultation}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    scrollToConsultation();
+                  }}
                 >
                   Apply for £2,000/month Membership
                 </Button>
