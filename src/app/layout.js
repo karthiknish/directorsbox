@@ -27,7 +27,7 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Directors Box",
+  title: "Directors Box By Profici",
   description:
     "Directors Box is an exclusive, high-level networking group for business leaders and entrepreneurs, offering premium connections, strategic partnerships, and collaborative opportunities in a confidential environment. Join fellow directors and decision-makers in this carefully curated business community focused on growth, innovation, and mutual success.",
 };
