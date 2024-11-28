@@ -201,7 +201,7 @@ export default function Home() {
                 />
               ) : (
                 <ReactPlayer
-                  url="https://profici.co.uk/wp-content/uploads/2024/11/Revitalize-Business-Networking-3.mp4"
+                  url="https://profici.co.uk/wp-content/uploads/2024/11/Directors-Landing-Mobile-1-1.mp4"
                   width="100%"
                   height="100%"
                   ref={playerRef}
