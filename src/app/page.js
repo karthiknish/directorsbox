@@ -163,7 +163,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              Discreet - Confidential - Exclusive
+              Discreet. Confidential. Exclusive
             </motion.h1>
           </motion.div>
 
@@ -645,8 +645,8 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Step into the world of DirectorsBox through the eyes of our members.
-            Real stories, real impact, real transformation.
+            Step into the world of Directors Box through the eyes of our
+            members. Real stories, real impact, real transformation.
           </motion.p>
         </motion.div>
         <VideoReel
@@ -678,7 +678,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              Join The DirectorsBox
+              Join The Directors Box
             </motion.h2>
             <motion.p
               className="text-gray-300 mb-6"
