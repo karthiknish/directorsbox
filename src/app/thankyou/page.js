@@ -24,7 +24,7 @@ export default function ThankYou() {
           </h1>
 
           <p className="text-xl text-gray-600 mb-8">
-            We appreciate your interest in joining The DirectorsBox. Our
+            We appreciate your interest in joining The Directors Box. Our
             membership committee will carefully review your application and
             contact you within the next few business days to discuss the next
             steps in the membership process.

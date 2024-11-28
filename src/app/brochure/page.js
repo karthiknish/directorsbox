@@ -18,7 +18,7 @@ export default function BrochurePage() {
           transition={{ duration: 0.6 }}
         >
           <h1 className="text-4xl font-bold mb-4">
-            Thank You for Your Interest in DirectorsBox
+            Thank You for Your Interest in Directors Box
           </h1>
           <p className="text-gray-600 text-lg">
             Please view our exclusive brochure below to learn more about our
