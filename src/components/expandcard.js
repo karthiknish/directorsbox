@@ -6,7 +6,6 @@ import Image from "next/image";
 import { useOutsideClick } from "../hooks/use-outside-click";
 
 export default function ExpandableCard({ cards }) {
-  console.log(cards);
   const [active, setActive] = useState(null);
   const ref = useRef(null);
   const id = useId();

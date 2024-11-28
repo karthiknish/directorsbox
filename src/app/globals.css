@@ -1,9 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-.input[type="submit"] {
-  background-color: #ed3330 !important;
+.brochure-form input[type="submit"] {
+  background: black !important;
 }
+#gform_submit_button_9 {
+  background: black !important;
+}
+:root {
+  --gf-ctrl-btn-bg-color-primary: black !important;
+}
+
 @layer base {
   :root {
     --radius: 0.5rem;
