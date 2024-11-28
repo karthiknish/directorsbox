@@ -180,7 +180,7 @@ export default function Home() {
             >
               {!isMobile ? (
                 <ReactPlayer
-                  url="https://profici.co.uk/wp-content/uploads/2024/11/Directors-Box-Networking.mp4"
+                  url="https://profici.co.uk/wp-content/uploads/2024/11/Directors-Landing-1.mp4"
                   width="100%"
                   height="100%"
                   ref={playerRef}
@@ -223,23 +223,25 @@ export default function Home() {
                     />
                   </motion.svg>
                 ) : (
-                  <motion.svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="white"
-                    className="w-12 h-12"
-                    initial={{ scale: 0 }}
-                    animate={{ scale: 1 }}
-                    transition={{ type: "spring", stiffness: 200 }}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347c-.75.412-1.667-.13-1.667-.986V5.653Z"
-                    />
-                  </motion.svg>
+                  <>
+                    <motion.svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="white"
+                      className="w-12 z-10 h-12"
+                      initial={{ scale: 0 }}
+                      animate={{ scale: 1 }}
+                      transition={{ type: "spring", stiffness: 200 }}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347c-.75.412-1.667-.13-1.667-.986V5.653Z"
+                      />
+                    </motion.svg>
+                  </>
                 )}
               </motion.button>
             </motion.div>

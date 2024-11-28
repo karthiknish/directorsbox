@@ -43,7 +43,7 @@ const VideoReel = ({ videos, posters }) => {
               />
               <motion.button
                 className={`absolute inset-0 flex items-center z-10 justify-center ${
-                  playingStates[videoId] ? "bg-transparent" : "bg-black/30"
+                  playingStates[videoId] ? "bg-transparent" : "bg-black/10"
                 } hover:bg-black/40 transition-colors`}
                 onClick={() => handlePlayPause(videoId)}
                 whileTap={{ scale: 0.95 }}
