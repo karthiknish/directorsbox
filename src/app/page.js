@@ -180,7 +180,7 @@ export default function Home() {
             >
               {!isMobile ? (
                 <ReactPlayer
-                  url="https://profici.co.uk/wp-content/uploads/2024/11/Directors-Landing-1.mp4"
+                  url="https://profici.co.uk/wp-content/uploads/2024/11/Directors-Box-Landing.mp4"
                   width="100%"
                   height="100%"
                   ref={playerRef}
@@ -189,7 +189,7 @@ export default function Home() {
                 />
               ) : (
                 <ReactPlayer
-                  url="https://profici.co.uk/wp-content/uploads/2024/11/Directors-Landing-Mobile-1-1.mp4"
+                  url="https://profici.co.uk/wp-content/uploads/2024/11/Directors-Box-Mobile.mp4"
                   width="100%"
                   height="100%"
                   ref={playerRef}
@@ -482,14 +482,15 @@ export default function Home() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                      d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
                     />
                   </svg>
                 </div>
-                <h3 className="text-xl font-bold mb-2">Fast Results</h3>
+                <h3 className="text-xl font-bold mb-2">Strategic Advisory</h3>
                 <p className="text-gray-600">
-                  Structured networking designed to generate immediate business
-                  opportunities
+                  Access our elite panel of industry veterans and thought
+                  leaders who provide personalized guidance to optimize your
+                  business strategy
                 </p>
               </motion.div>
               <motion.div
