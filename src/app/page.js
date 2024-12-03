@@ -739,7 +739,7 @@ export default function Home() {
                   transition={{ duration: 0.4 }}
                 >
                   <iframe
-                    src="//profici.co.uk/gfembed/?f=10"
+                    src={`//profici.co.uk/gfembed/?f=10${window.location.search}`}
                     width="100%"
                     height="900px"
                     frameBorder="0"
