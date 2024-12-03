@@ -284,7 +284,8 @@ export default function Home() {
                   data-scroll-trigger="true"
                   onClick={(e) => {
                     e.stopPropagation();
-                    scrollToConsultation();
+                    window.location.href =
+                      "https://pay.gocardless.com/BRT0003JH1D7ZCC";
                   }}
                 >
                   Apply for Your Membership
@@ -712,6 +713,7 @@ export default function Home() {
               <AnimatePresence>
                 {showButton && (
                   <motion.div
+                    className="gap-3 flex"
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1 }}
                     exit={{ opacity: 0, scale: 0.8 }}
@@ -724,6 +726,17 @@ export default function Home() {
                       onClick={() => setShowButton(false)}
                     >
                       Apply Now
+                    </Button>
+                    <Button
+                      size="lg"
+                      className="bg-white text-gray-900 hover:bg-gray-100"
+                      onClick={() => {
+                        setShowButton(false);
+                        window.location.href =
+                          "https://pay.gocardless.com/BRT0003JH1D7ZCC";
+                      }}
+                    >
+                      Get Started for £2000+VAT
                     </Button>
                   </motion.div>
                 )}
