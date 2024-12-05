@@ -472,7 +472,7 @@ export default function Home() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="bg-black w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="bg-black w-16 h-16 rounded-full flex items-center justify-centperer mx-auto mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-8 w-8 text-white"
@@ -491,7 +491,7 @@ export default function Home() {
                 <h3 className="text-xl font-bold mb-2">Strategic Advisory</h3>
                 <p className="text-gray-600">
                   Access our elite panel of industry veterans and thought
-                  leaders who provide personalized guidance to optimize your
+                  leaders who provide personalised guidance to optimise your
                   business strategy
                 </p>
               </motion.div>
@@ -718,11 +718,11 @@ export default function Home() {
                       size="lg"
                       className="bg-white text-gray-900 hover:bg-gray-100"
                       onClick={() => {
-                        sendGTMEvent({ event: "inquire_button_click" });
+                        sendGTMEvent({ event: "enquire_button_click" });
                         setShowButton(false);
                       }}
                     >
-                      Inquire Now
+                      Enquire Now
                     </Button>
                     <Button
                       size="lg"
