@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import ExpandableCard from "../components/expandcard";
 import VideoReel from "../components/reel";
 import Pdf from "../components/pdf";
+import { sendGTMEvent } from "@next/third-parties/google";
 export default function Home() {
   const [playingStates, setPlayingStates] = useState({
     mainVideo: false,
@@ -716,14 +717,18 @@ export default function Home() {
                     <Button
                       size="lg"
                       className="bg-white text-gray-900 hover:bg-gray-100"
-                      onClick={() => setShowButton(false)}
+                      onClick={() => {
+                        sendGTMEvent({ event: "inquire_button_click" });
+                        setShowButton(false);
+                      }}
                     >
-                      Apply Now
+                      Inquire Now
                     </Button>
                     <Button
                       size="lg"
                       className="bg-white text-gray-900 hover:bg-gray-100"
                       onClick={() => {
+                        sendGTMEvent({ event: "payment_button_click" });
                         setShowButton(false);
                         window.location.href =
                           "https://pay.gocardless.com/BRT0003JH1D7ZCC";

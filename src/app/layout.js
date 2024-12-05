@@ -3,7 +3,7 @@ import "./globals.css";
 import Script from "next/script";
 import Header from "../components/header";
 import Footer from "../components/footer";
-
+import { GoogleTagManager } from "@next/third-parties/google";
 const mango = localFont({
   src: [
     {
@@ -67,7 +67,7 @@ export default function RootLayout({ children }) {
           type="text/javascript"
         />
       </head>
-
+      <GoogleTagManager gtmId="GTM-TVDSJQ65" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${mango.variable} font-sans antialiased`}
       >
