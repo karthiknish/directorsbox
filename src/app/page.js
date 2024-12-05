@@ -472,7 +472,7 @@ export default function Home() {
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
-                <div className="bg-black w-16 h-16 rounded-full flex items-center justify-centperer mx-auto mb-4">
+                <div className="bg-black w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-8 w-8 text-white"
