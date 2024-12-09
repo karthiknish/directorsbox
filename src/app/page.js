@@ -289,7 +289,7 @@ export default function Home() {
                       "https://buy.stripe.com/dR63fIdWicIwf8A7ss";
                   }}
                 >
-                  Join Today for £195
+                  Apply for Membership
                 </Button>
               </motion.div>
             </motion.div>
