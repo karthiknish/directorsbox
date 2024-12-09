@@ -281,8 +281,8 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.8 }}
               >
-                Pay a joining fee of £195 and get your first months membership
-                fee of £2000 on us.
+                Pay a joining fee of £195 and get your first month's membership
+                fee of £2,000 on us.
               </motion.h3>
               <motion.div
                 whileHover={{ scale: 1.05 }}
