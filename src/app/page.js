@@ -152,7 +152,7 @@ export default function Home() {
     >
       <main className="container mx-auto space-y-16">
         <motion.div
-          className="flex flex-col items-center gap-8 py-12 max-w-4xl mx-auto"
+          className="flex flex-col items-center gap-8 xl:py-12 max-w-4xl mx-auto"
           initial="initial"
           animate="animate"
           variants={fadeIn}
