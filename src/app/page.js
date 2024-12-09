@@ -284,6 +284,14 @@ export default function Home() {
                 Pay a joining fee of £195 and get your first month's membership
                 fee of £2,000 on us.
               </motion.h3>
+              <motion.p
+                className="text-sm text-gray-600 mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.9 }}
+              >
+                Last Few membership spots remaining for Q1 2024
+              </motion.p>
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
