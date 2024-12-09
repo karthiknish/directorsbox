@@ -286,10 +286,10 @@ export default function Home() {
                   onClick={(e) => {
                     e.stopPropagation();
                     window.location.href =
-                      "https://pay.gocardless.com/BRT0003JH1D7ZCC";
+                      "https://buy.stripe.com/dR63fIdWicIwf8A7ss";
                   }}
                 >
-                  Apply for Your Membership
+                  Join Today for £195
                 </Button>
               </motion.div>
             </motion.div>
@@ -731,10 +731,10 @@ export default function Home() {
                         sendGTMEvent({ event: "payment_button_click" });
                         setShowButton(false);
                         window.location.href =
-                          "https://pay.gocardless.com/BRT0003JH1D7ZCC";
+                          "https://buy.stripe.com/dR63fIdWicIwf8A7ss";
                       }}
                     >
-                      Get Started for £2000+VAT
+                      Join Today for £195
                     </Button>
                   </>
                 )}
