@@ -753,9 +753,11 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              Take the first step towards joining an exclusive community of
-              successful business owners. You can apply to see if you qualify
-              for membership in this carefully curated group.
+              Join The Directors Box today for just £195 and unlock all the
+              benefits. Unlike any private members club, we offer you the
+              opportunity to enjoy your first month on us. Your membership fee
+              is only payable after one month, allowing you to immerse yourself
+              in the experience, risk-free.
             </motion.p>
             <motion.p
               className="text-gray-400 mb-12 text-sm"
