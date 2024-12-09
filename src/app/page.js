@@ -270,11 +270,20 @@ export default function Home() {
               elevate your Professional Success.
             </motion.p>
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 mt-10"
+              className="flex flex-col items-center gap-4 mt-10"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1 }}
             >
+              <motion.h3
+                className="text-2xl font-semibold mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
+                Pay a joining fee of £195 and get your £2000 membership fee on
+                us for the first month.
+              </motion.h3>
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
