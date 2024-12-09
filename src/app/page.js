@@ -190,7 +190,7 @@ export default function Home() {
                 />
               ) : (
                 <ReactPlayer
-                  url="https://profici.co.uk/wp-content/uploads/2024/11/Directors-Box-Mobile.mp4"
+                  url="https://profici.co.uk/wp-content/uploads/2024/12/Directors-Box-Mobile-Landing-1.mp4"
                   width="100%"
                   height="100%"
                   ref={playerRef}
@@ -290,7 +290,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.9 }}
               >
-                Last Few membership spots remaining for Q1 2024
+                Last Few membership spots remaining!
               </motion.p>
               <motion.div
                 whileHover={{ scale: 1.05 }}
