@@ -265,7 +265,7 @@ export default function Home() {
               short, The Directors Box is an Exclusive Private Members' Club
               created for Ambitious Business Leaders, offering a Sophisticated
               Platform where Genuine Value, Meaningful Connections, and
-              Impactful Results converge.
+              Impactful Results converge. <br />
               <br /> Experience a New Standard in Community Building—designed to
               elevate your Professional Success.
             </motion.p>
