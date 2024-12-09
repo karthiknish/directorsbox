@@ -285,8 +285,7 @@ export default function Home() {
                   data-scroll-trigger="true"
                   onClick={(e) => {
                     e.stopPropagation();
-                    window.location.href =
-                      "https://buy.stripe.com/dR63fIdWicIwf8A7ss";
+                    scrollToConsultation();
                   }}
                 >
                   Apply for Membership
