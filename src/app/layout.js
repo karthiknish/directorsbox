@@ -4,6 +4,7 @@ import Script from "next/script";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { GoogleTagManager } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/react";
 const mango = localFont({
   src: [
     {
@@ -73,6 +74,7 @@ export default function RootLayout({ children }) {
       >
         <Header />
         {children}
+        <Analytics />
         <Footer />
       </body>
     </html>
