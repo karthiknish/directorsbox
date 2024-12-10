@@ -670,9 +670,11 @@ export default function Home() {
                         Lead Generation
                       </h3>
                       <p className="text-gray-600">
-                        Our expert team delivers targeted leads to expand your
-                        business network. We identify and provide you with
-                        potential prospects to help you reach untapped markets.
+                        Our proprietary software automatically identifies and
+                        delivers targeted leads to expand your business network.
+                        The system analyzes market data to connect you with
+                        high-value prospects, helping you efficiently reach
+                        untapped markets.
                       </p>
                     </motion.div>
                   </div>
