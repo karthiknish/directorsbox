@@ -17,12 +17,6 @@ export default function ExpandableCard({ cards }) {
       }
     }
 
-    if (active && typeof active === "object") {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [active]);
@@ -67,7 +61,7 @@ export default function ExpandableCard({ cards }) {
             <motion.div
               layoutId={`card-${active.title}-${id}`}
               ref={ref}
-              className="w-full max-w-[500px]  md:h-fit md:max-h-[90vh] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden"
+              className="w-full max-w-[500px] flex flex-col bg-white dark:bg-neutral-900 sm:rounded-3xl overflow-hidden mx-4 max-h-[90vh]"
             >
               <motion.div layoutId={`image-${active.title}-${id}`}>
                 <Image
@@ -81,7 +75,7 @@ export default function ExpandableCard({ cards }) {
                 />
               </motion.div>
 
-              <div>
+              <div className="overflow-y-auto flex-1">
                 <div className="flex justify-between items-start p-4">
                   <div className="">
                     <motion.h3
@@ -98,13 +92,13 @@ export default function ExpandableCard({ cards }) {
                     </motion.p>
                   </div>
                 </div>
-                <div className="pt-4 relative px-4">
+                <div className="pt-4 relative px-4 pb-10">
                   <motion.div
                     layout
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    className="text-neutral-600 text-sm md:text-base lg:text-lg pb-10 flex flex-col items-start gap-4 overflow-scroll dark:text-neutral-400 [scrollbar-width:none] [-ms-overflow-style:none] [-webkit-overflow-scrolling:touch] max-h-[40vh] md:max-h-[50vh]"
+                    className="text-neutral-600 text-sm md:text-base lg:text-lg flex flex-col items-start gap-4 dark:text-neutral-400"
                   >
                     {typeof active.content === "function"
                       ? active.content()

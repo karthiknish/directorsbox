@@ -1,16 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import {
-  ArrowRight,
-  ArrowDown,
-  Calendar,
-  Users,
-  Briefcase,
-  Megaphone,
-  Building2,
-  HeartHandshake,
-} from "lucide-react";
 
 export default function Flowchart() {
   const [isMobile, setIsMobile] = useState(false);
@@ -34,117 +24,167 @@ export default function Flowchart() {
 
   return (
     <motion.div
-      className="w-full max-w-6xl mx-auto px-4 py-8"
+      className="w-full max-w-6xl mx-auto px-4 py-8 overflow-x-auto"
       initial="initial"
       animate="animate"
       variants={fadeIn}
     >
-      <div
-        className={`flex ${
-          isMobile ? "flex-col space-y-6" : "flex-row"
-        } items-center justify-center`}
-      >
-        {/* Initial Decision */}
-        <motion.div
-          className="flex items-center bg-black text-white rounded-lg p-4 w-48 text-center"
-          whileHover={{ scale: 1.05 }}
-        >
-          <span>Decision to Join Directors Box</span>
-        </motion.div>
-
-        {/* Arrow or Spacer */}
-        {!isMobile ? (
-          <motion.div
-            className="flex items-center mx-4"
-            whileHover={{ scale: 1.2 }}
-          >
-            <ArrowRight className="w-8 h-8" />
-          </motion.div>
-        ) : (
-          <motion.div
-            className="flex justify-center my-2"
-            whileHover={{ scale: 1.2 }}
-          >
-            <ArrowDown className="w-8 h-8" />
-          </motion.div>
+      <div className={`relative ${isMobile ? "min-w-full" : "min-w-[1000px]"}`}>
+        {/* Timeline line and arrows */}
+        {!isMobile && (
+          <div className="absolute left-0 right-0 top-[20px] flex items-center">
+            <div className="h-0.5 bg-gray-200 flex-grow relative">
+              {[...Array(5)].map((_, i) => (
+                <div
+                  key={i}
+                  className="absolute top-1/2"
+                  style={{
+                    left: `${(i + 1) * (100 / 6)}%`,
+                  }}
+                >
+                  <div className="w-3 h-3 border-t-2 border-r-2 border-gray-200 transform rotate-45 translate-y-[-4px]" />
+                </div>
+              ))}
+            </div>
+          </div>
         )}
 
-        {/* Joining Fee */}
-        <motion.div
-          className="flex items-center gap-2 bg-black text-white rounded-lg p-4 w-48 text-center"
-          whileHover={{ scale: 1.05 }}
+        <div
+          className={`relative ${
+            isMobile ? "flex flex-col gap-8" : "flex gap-8"
+          } mt-8`}
         >
-          <span>One-time Joining Fee £195</span>
-        </motion.div>
+          {/* Step 1 */}
+          <div className={`${isMobile ? "w-full" : "flex-1"}`}>
+            <div className="flex flex-col items-center">
+              <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center z-10 mb-4">
+                <span className="text-white text-2xl">DB</span>
+              </div>
+              <div className="text-center">
+                <h3 className="font-semibold mb-2">Visit Directors Box</h3>
+                <p className="text-gray-600">
+                  Learn about our exclusive community and benefits
+                </p>
+              </div>
+            </div>
+          </div>
 
-        {/* Arrow or Spacer */}
-        {!isMobile ? (
-          <motion.div
-            className="flex items-center mx-4"
-            whileHover={{ scale: 1.2 }}
-          >
-            <ArrowRight className="w-8 h-8" />
-          </motion.div>
-        ) : (
-          <motion.div
-            className="flex justify-center my-2"
-            whileHover={{ scale: 1.2 }}
-          >
-            <ArrowDown className="w-8 h-8" />
-          </motion.div>
-        )}
+          {/* Step 2 */}
+          <div className={`${isMobile ? "w-full" : "flex-1"}`}>
+            <div className="flex flex-col items-center">
+              <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center z-10 mb-4">
+                <svg
+                  className="w-6 h-6 text-white"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+              </div>
+              <div className="text-center">
+                <h3 className="font-semibold mb-2">Share Personal Details</h3>
+                <p className="text-gray-600">Complete your member profile</p>
+              </div>
+            </div>
+          </div>
 
-        {/* Monthly Fee */}
-        <motion.div
-          className="flex items-center gap-2 bg-black text-white rounded-lg p-4 w-48 text-center"
-          whileHover={{ scale: 1.05 }}
-        >
-          <span>Monthly Fee £2000</span>
-        </motion.div>
+          {/* Step 3 */}
+          <div className={`${isMobile ? "w-full" : "flex-1"}`}>
+            <div className="flex flex-col items-center">
+              <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center z-10 mb-4">
+                <svg
+                  className="w-6 h-6 text-white"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                  <line x1="16" y1="2" x2="16" y2="6" />
+                  <line x1="8" y1="2" x2="8" y2="6" />
+                  <line x1="3" y1="10" x2="21" y2="10" />
+                </svg>
+              </div>
+              <div className="text-center">
+                <h3 className="font-semibold mb-2">Schedule Welcome Meeting</h3>
+                <p className="text-gray-600">
+                  Meet with our team to discuss your goals
+                </p>
+              </div>
+            </div>
+          </div>
 
-        {/* Arrow to Benefits */}
-        {!isMobile ? (
-          <motion.div
-            className="flex items-center mx-4"
-            whileHover={{ scale: 1.2 }}
-          >
-            <ArrowRight className="w-8 h-8" />
-          </motion.div>
-        ) : (
-          <motion.div
-            className="flex justify-center my-2"
-            whileHover={{ scale: 1.2 }}
-          >
-            <ArrowDown className="w-8 h-8" />
-          </motion.div>
-        )}
+          {/* Step 4 */}
+          <div className={`${isMobile ? "w-full" : "flex-1"}`}>
+            <div className="flex flex-col items-center">
+              <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center z-10 mb-4">
+                <svg
+                  className="w-6 h-6 text-white"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="M12 8v8m-4-4h8" />
+                </svg>
+              </div>
+              <div className="text-center">
+                <h3 className="font-semibold mb-2">Complete Payment</h3>
+                <p className="text-gray-600">
+                  £195 joining fee + £2000 monthly membership
+                </p>
+              </div>
+            </div>
+          </div>
 
-        {/* Benefits Section */}
-        <div className={`${isMobile ? "mt-6" : "ml-12"}`}>
-          <div className="grid grid-cols-1 gap-4">
-            {[
-              { text: "Luxury Monthly Events", icon: Calendar },
-              { text: "Networking Opportunities", icon: Users },
-              {
-                text: "Business Consultations with C-suite Executives",
-                icon: Briefcase,
-              },
-              { text: "Access to Keynote Speakers", icon: Megaphone },
-              { text: "Award-winning Business Consultancy", icon: Building2 },
-              { text: "Bespoke Concierge Services", icon: HeartHandshake },
-            ].map(({ text, icon: Icon }, index) => (
-              <motion.div
-                key={index}
-                className="flex items-center gap-3 bg-black text-white rounded-lg p-4 w-64"
-                whileHover={{ scale: 1.05 }}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Icon className="w-5 h-5 flex-shrink-0" />
-                <span>{text}</span>
-              </motion.div>
-            ))}
+          {/* Step 5 */}
+          <div className={`${isMobile ? "w-full" : "flex-1"}`}>
+            <div className="flex flex-col items-center">
+              <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center z-10 mb-4">
+                <svg
+                  className="w-6 h-6 text-white"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <path d="M12 8v8" />
+                  <path d="M8 12h8" />
+                </svg>
+              </div>
+              <div className="text-center">
+                <h3 className="font-semibold mb-2">Begin Membership</h3>
+                <p className="text-gray-600">
+                  Get access to member benefits and updates
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Step 6 */}
+          <div className={`${isMobile ? "w-full" : "flex-1"}`}>
+            <div className="flex flex-col items-center">
+              <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center z-10 mb-4">
+                <svg
+                  className="w-6 h-6 text-white"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <div className="text-center">
+                <h3 className="font-semibold mb-2">Attend Events</h3>
+                <p className="text-gray-600">
+                  Join exclusive networking events and workshops
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
