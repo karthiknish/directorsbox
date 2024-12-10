@@ -781,7 +781,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              Join The Directors Box
+              Join Directors Box
             </motion.h2>
             <motion.p
               className="text-gray-300 mb-6"
@@ -790,7 +790,7 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              Join The Directors Box today for just £195 and unlock all the
+              Join Directors Box today for just £195 and unlock all the
               benefits. Unlike any private members club, we offer you the
               opportunity to enjoy your first month on us. Your membership fee
               is only payable after one month, allowing you to immerse yourself
@@ -835,8 +835,8 @@ export default function Home() {
                           "https://buy.stripe.com/dR63fIdWicIwf8A7ss";
                       }}
                     >
-                      Join Today for <span className="line-through"> £500</span>
-                      £195
+                      Join Today for{" "}
+                      <span className="line-through"> £500 </span> £195
                     </Button>
                   </>
                 )}
