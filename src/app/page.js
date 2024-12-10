@@ -836,7 +836,14 @@ export default function Home() {
                       }}
                     >
                       Join Today for{" "}
-                      <span className="line-through"> £500 </span> £195
+                      <span
+                        style={{ marginLeft: "5px", marginRight: "5px" }}
+                        className="line-through"
+                      >
+                        {" "}
+                        £500{" "}
+                      </span>{" "}
+                      £195
                     </Button>
                   </>
                 )}
