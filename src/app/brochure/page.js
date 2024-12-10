@@ -32,7 +32,7 @@ export default function BrochurePage() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <iframe
-            src="https://profici.co.uk/wp-content/uploads/2024/11/Directors-Box-Brochure.pdf"
+            src="https://profici.co.uk/wp-content/uploads/2024/12/Directors-Box-Brochure.pdf"
             className="w-full h-full rounded-lg shadow-lg"
             style={{ border: "none" }}
           />
