@@ -424,7 +424,7 @@ export default function Home() {
                 <p className="text-gray-600">
                   Get Exclusive access to Our C-suite worth £1500 for free. Gain
                   insights from seasoned industry veterans with a proven track
-                  record of success. Enjoy 4 high-level business consultancy and
+                  record of success. Enjoy high-level business consultancy and
                   integration sessions with our network of distinguished CFOs,
                   CEOs, and CMOs.
                 </p>
