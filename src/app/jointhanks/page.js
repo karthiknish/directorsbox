@@ -44,7 +44,7 @@ export default function JoinThanks() {
               transition={{ duration: 0.2 }}
             >
               <Link
-                href="https://directorsbox.com"
+                href="https://directorsbox.co.uk"
                 className="inline-block bg-black text-white px-8 py-3 rounded-full font-semibold hover:bg-gray-800 transition-colors"
               >
                 Return to Homepage

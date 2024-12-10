@@ -79,18 +79,45 @@ export default function Flowchart() {
                   fill="none"
                   stroke="currentColor"
                 >
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                  <circle cx="12" cy="7" r="4" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+                  />
                 </svg>
               </div>
               <div className="text-center">
-                <h3 className="font-semibold mb-2">Share Personal Details</h3>
-                <p className="text-gray-600">Complete your member profile</p>
+                <h3 className="font-semibold mb-2">Pay Joining Fee</h3>
+                <p className="text-gray-600">One-time payment of £195</p>
               </div>
             </div>
           </div>
 
           {/* Step 3 */}
+          <div className={`${isMobile ? "w-full" : "flex-1"}`}>
+            <div className="flex flex-col items-center">
+              <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center z-10 mb-4">
+                <svg
+                  className="w-6 h-6 text-white"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
+                </svg>
+              </div>
+              <div className="text-center">
+                <h3 className="font-semibold mb-2">Set Up Your Profile</h3>
+                <p className="text-gray-600">
+                  Tell us about your business and goals
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Step 4 */}
           <div className={`${isMobile ? "w-full" : "flex-1"}`}>
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center z-10 mb-4">
@@ -115,29 +142,6 @@ export default function Flowchart() {
             </div>
           </div>
 
-          {/* Step 4 */}
-          <div className={`${isMobile ? "w-full" : "flex-1"}`}>
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center z-10 mb-4">
-                <svg
-                  className="w-6 h-6 text-white"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                >
-                  <rect x="2" y="4" width="20" height="16" rx="2" />
-                  <path d="M12 8v8m-4-4h8" />
-                </svg>
-              </div>
-              <div className="text-center">
-                <h3 className="font-semibold mb-2">Complete Payment</h3>
-                <p className="text-gray-600">
-                  £195 joining fee + £2000 monthly membership
-                </p>
-              </div>
-            </div>
-          </div>
-
           {/* Step 5 */}
           <div className={`${isMobile ? "w-full" : "flex-1"}`}>
             <div className="flex flex-col items-center">
@@ -148,16 +152,17 @@ export default function Flowchart() {
                   fill="none"
                   stroke="currentColor"
                 >
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M12 8v8" />
-                  <path d="M8 12h8" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"
+                  />
                 </svg>
               </div>
               <div className="text-center">
-                <h3 className="font-semibold mb-2">Begin Membership</h3>
-                <p className="text-gray-600">
-                  Get access to member benefits and updates
-                </p>
+                <h3 className="font-semibold mb-2">Start Monthly Membership</h3>
+                <p className="text-gray-600">£2000 monthly subscription</p>
               </div>
             </div>
           </div>

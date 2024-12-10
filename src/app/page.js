@@ -672,7 +672,7 @@ export default function Home() {
                       <p className="text-gray-600">
                         Our proprietary software automatically identifies and
                         delivers targeted leads to expand your business network.
-                        The system analyzes market data to connect you with
+                        The system analyses market data to connect you with
                         high-value prospects, helping you efficiently reach
                         untapped markets.
                       </p>
