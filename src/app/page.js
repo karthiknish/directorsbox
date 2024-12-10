@@ -619,7 +619,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              Your Journey from Membership
+              What Makes Directors Box Different
             </motion.h2>
             <motion.div
               className="relative"
@@ -640,14 +640,14 @@ export default function Home() {
                       transition={{ duration: 0.2 }}
                     >
                       <h3 className="text-xl font-bold mb-4">
-                        Founder Introduction
+                        Bespoke Event Management
                       </h3>
                       <p className="text-gray-600">
-                        Begin with a personal induction call with our founder.
-                        This is your opportunity to share your business journey,
-                        discuss your goals, and understand how The DirectorsBox
-                        can accelerate your success. We'll ensure there's a
-                        perfect fit between your aspirations and our community.
+                        We curate and manage exclusive high-level networking
+                        events tailored to your business goals. From intimate
+                        roundtables to large-scale conferences, we handle
+                        everything from venue selection to attendee curation,
+                        ensuring meaningful connections are made.
                       </p>
                     </motion.div>
                   </div>
@@ -666,14 +666,15 @@ export default function Home() {
                       whileHover={{ scale: 1.02 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <h3 className="text-xl font-bold mb-4">C-Suite Access</h3>
+                      <h3 className="text-xl font-bold mb-4">
+                        Lead Generation & Performance Marketing
+                      </h3>
                       <p className="text-gray-600">
-                        Upon acceptance, gain direct access to our network of
-                        distinguished C-suite executives, successful
-                        entrepreneurs and industry leaders. Benefit from regular
-                        one-on-one consultations, mentoring sessions, and
-                        strategic guidance from experienced business veterans
-                        who have built and scaled successful companies.
+                        Our expert team delivers targeted lead generation
+                        campaigns and performance marketing strategies that
+                        drive real business growth. We focus on quality over
+                        quantity, ensuring each lead has genuine potential for
+                        conversion and long-term value.
                       </p>
                     </motion.div>
                   </div>
@@ -691,15 +692,14 @@ export default function Home() {
                       transition={{ duration: 0.2 }}
                     >
                       <h3 className="text-xl font-bold mb-4">
-                        Exclusive Events
+                        C-Suite Network Access
                       </h3>
                       <p className="text-gray-600">
-                        Start receiving invitations to our exclusive member-only
-                        events, including intimate business breakfasts with
-                        industry leaders, strategic networking sessions, and
-                        expert-led workshops. Each event is carefully designed
-                        to deliver maximum value and foster meaningful
-                        connections.
+                        Gain direct access to our exclusive network of C-level
+                        executives and industry leaders. Benefit from their
+                        expertise through one-on-one mentoring, strategic
+                        advisory sessions, and collaborative opportunities that
+                        can transform your business trajectory.
                       </p>
                     </motion.div>
                   </div>
