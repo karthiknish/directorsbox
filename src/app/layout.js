@@ -5,6 +5,8 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/react";
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 const mango = localFont({
   src: [
     {
@@ -69,6 +71,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <GoogleTagManager gtmId="GTM-TVDSJQ65" />
+      <GoogleAnalytics gaId="G-6EF76R3RNH" />
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${mango.variable} font-sans antialiased`}
       >
