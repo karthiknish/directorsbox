@@ -667,14 +667,12 @@ export default function Home() {
                       transition={{ duration: 0.2 }}
                     >
                       <h3 className="text-xl font-bold mb-4">
-                        Lead Generation & Performance Marketing
+                        Lead Generation
                       </h3>
                       <p className="text-gray-600">
-                        Our expert team delivers targeted lead generation
-                        campaigns and performance marketing strategies that
-                        drive real business growth. We focus on quality over
-                        quantity, ensuring each lead has genuine potential for
-                        conversion and long-term value.
+                        Our expert team delivers targeted leads to expand your
+                        business network. We identify and provide you with
+                        potential prospects to help you reach untapped markets.
                       </p>
                     </motion.div>
                   </div>
