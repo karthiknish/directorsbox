@@ -692,14 +692,14 @@ export default function Home() {
                       transition={{ duration: 0.2 }}
                     >
                       <h3 className="text-xl font-bold mb-4">
-                        C-Suite Network Access
+                        Profici Podcast Feature
                       </h3>
                       <p className="text-gray-600">
-                        Gain direct access to our exclusive network of C-level
-                        executives and industry leaders. Benefit from their
-                        expertise through one-on-one mentoring, strategic
-                        advisory sessions, and collaborative opportunities that
-                        can transform your business trajectory.
+                        Get featured on the Profici Podcast, reaching thousands
+                        of business leaders and potential clients. Share your
+                        expertise, tell your success story, and elevate your
+                        personal brand through professional podcast production
+                        and distribution across major platforms.
                       </p>
                     </motion.div>
                   </div>
