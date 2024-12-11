@@ -1,15 +1,6 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
-import { useState } from "react";
-
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
   return (
     <header className="w-full py-6 z-10 relative bg-white border-b border-gray-200">
       <div className="container mx-auto px-4 flex justify-between items-center">
