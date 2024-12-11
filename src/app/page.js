@@ -784,6 +784,54 @@ export default function Home() {
             >
               Join Directors Box
             </motion.h2>
+            <motion.div
+              className="mb-8 text-xl font-bold"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <p className="text-yellow-400 mb-2">
+                Limited Time Offer Ends In:
+              </p>
+              <div className="flex justify-center gap-4">
+                <div className="bg-gray-800 px-4 py-2 rounded">
+                  <span id="days">00</span>d
+                </div>
+                <div className="bg-gray-800 px-4 py-2 rounded">
+                  <span id="hours">00</span>h
+                </div>
+                <div className="bg-gray-800 px-4 py-2 rounded">
+                  <span id="minutes">00</span>m
+                </div>
+                <div className="bg-gray-800 px-4 py-2 rounded">
+                  <span id="seconds">00</span>s
+                </div>
+              </div>
+              <script
+                dangerouslySetInnerHTML={{
+                  __html: `
+                  function updateCountdown() {
+                    const endDate = new Date('December 31, 2024 23:59:59').getTime();
+                    const now = new Date().getTime();
+                    const timeLeft = endDate - now;
+                    
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                    
+                    document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+                    document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
+                    document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+                    document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+                  }
+                  setInterval(updateCountdown, 1000);
+                  updateCountdown();
+                `,
+                }}
+              />
+            </motion.div>
             <motion.p
               className="text-gray-300 mb-6"
               initial={{ opacity: 0, y: 20 }}
