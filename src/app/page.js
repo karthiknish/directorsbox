@@ -462,6 +462,26 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.section>
+        <motion.div className="text-center mb-16">
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Our Process
+          </motion.h2>
+          <motion.p
+            className="text-gray-600 text-lg max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            A simple and transparent journey to becoming a member of the
+            Directors Box community
+          </motion.p>
+          <Flowchart />
+        </motion.div>
         <motion.section
           className="py-12  rounded-3xl"
           initial={{ opacity: 0 }}
@@ -745,27 +765,7 @@ export default function Home() {
             "https://profici.co.uk/wp-content/uploads/2024/11/Daniel-Thumb.png",
           ]}
         />
-        <motion.div className="text-center mb-16">
-          <motion.h2
-            className="text-4xl md:text-5xl font-bold mb-4"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            Our Process
-          </motion.h2>
-          <motion.p
-            className="text-gray-600 text-lg max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
-            A simple and transparent journey to becoming a member of the
-            Directors Box community
-          </motion.p>
-        </motion.div>
-        <Flowchart />
-        <Pdf />
+
         <motion.section
           id="consultation"
           className="py-24 bg-black text-white rounded-3xl"
@@ -932,6 +932,7 @@ export default function Home() {
             </AnimatePresence>
           </div>
         </motion.section>
+        <Pdf />
       </main>
     </motion.div>
   );
