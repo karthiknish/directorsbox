@@ -8,6 +8,7 @@ import VideoReel from "../components/reel";
 import Pdf from "../components/pdf";
 import { sendGTMEvent } from "@next/third-parties/google";
 import Flowchart from "../components/flowchart";
+import LogoStrip from "../components/logostrip";
 export default function Home() {
   const [playingStates, setPlayingStates] = useState({
     mainVideo: false,
@@ -474,6 +475,27 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.section>
+        <motion.div className="text-center mb-16">
+          <motion.h2
+            className="text-4xl md:text-5xl font-bold mb-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            Trusted By Industry Leaders
+          </motion.h2>
+          <motion.p
+            className="text-gray-600 text-lg max-w-2xl mx-auto mb-12"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            Our C-Suite experts have held senior positions at leading
+            organizations. Join an exclusive network of businesses that have
+            experienced the Directors Box difference.
+          </motion.p>
+          <LogoStrip />
+        </motion.div>
         <motion.div className="text-center mb-16">
           <motion.h2
             className="text-4xl md:text-5xl font-bold mb-4"
