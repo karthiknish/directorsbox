@@ -29,7 +29,7 @@ const LogoStrip = () => {
     },
     {
       src: "https://profici.co.uk/wp-content/uploads/2024/12/584825d2cef1014c0b5e49d6-1.png",
-      alt: "Logo",
+      alt: "Barclays Logo",
     },
     {
       src: "https://profici.co.uk/wp-content/uploads/2024/12/Stussy-Logo.png",
