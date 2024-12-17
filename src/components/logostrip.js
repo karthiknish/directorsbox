@@ -28,24 +28,88 @@ const LogoStrip = () => {
       alt: "Nike Logo",
     },
     {
-      src: "https://profici.co.uk/wp-content/uploads/2024/12/Outlook-doddle-log.jpg",
-      alt: "Outlook Logo",
+      src: "https://profici.co.uk/wp-content/uploads/2024/12/584825d2cef1014c0b5e49d6-1.png",
+      alt: "Logo",
     },
     {
-      src: "https://profici.co.uk/wp-content/uploads/2024/12/Outlook-OH-Consul.jpg",
-      alt: "OH Consul Logo",
+      src: "https://profici.co.uk/wp-content/uploads/2024/12/Stussy-Logo.png",
+      alt: "Stussy Logo",
     },
     {
-      src: "https://profici.co.uk/wp-content/uploads/2024/12/E68CF079-6D16-4EAE-A9E2A2A08D08AC3B_Wauto_H300.png",
-      alt: "PwC Logo",
+      src: "https://profici.co.uk/wp-content/uploads/2024/12/apple-logo-transparent.png",
+      alt: "Apple Logo",
     },
     {
-      src: "https://profici.co.uk/wp-content/uploads/2024/12/Screenshot-2024-12-17-at-11.56.35 AM.png",
-      alt: "Prosper Logo",
+      src: "https://profici.co.uk/wp-content/uploads/2024/12/Electronic-Arts-Logo-2006-present.png",
+      alt: "EA Logo",
     },
     {
-      src: "https://profici.co.uk/wp-content/uploads/2024/12/BNI-logo-1.png",
-      alt: "BNI Logo",
+      src: "https://profici.co.uk/wp-content/uploads/2024/12/espn.png",
+      alt: "ESPN Logo",
+    },
+    {
+      src: "https://profici.co.uk/wp-content/uploads/2024/12/Netflix-Symbol.png",
+      alt: "Netflix Logo",
+    },
+    {
+      src: "https://profici.co.uk/wp-content/uploads/2024/12/samsung.png",
+      alt: "Samsung Logo",
+    },
+    {
+      src: "https://profici.co.uk/wp-content/uploads/2024/12/british-airways-logo-1997.jpg",
+      alt: "British Airways Logo",
+    },
+    {
+      src: "https://profici.co.uk/wp-content/uploads/2024/12/talkSPORT_stacked_small.jpg",
+      alt: "TalkSport Logo",
+    },
+    {
+      src: "https://profici.co.uk/wp-content/uploads/2024/12/Swatch-Logo.png",
+      alt: "Swatch Logo",
+    },
+    {
+      src: "https://profici.co.uk/wp-content/uploads/2024/12/Outlook-Emirates.png",
+      alt: "Emirates Logo",
+    },
+    {
+      src: "https://profici.co.uk/wp-content/uploads/2024/12/1200px-Ogilvy_logo.svg_.png",
+      alt: "Ogilvy Logo",
+    },
+    {
+      src: "https://profici.co.uk/wp-content/uploads/2024/12/saatchi-and-saatchi-logo-vector.png",
+      alt: "Saatchi Logo",
+    },
+    {
+      src: "https://profici.co.uk/wp-content/uploads/2024/12/chumbak.jpg",
+      alt: "Chumbak Logo",
+    },
+    {
+      src: "https://profici.co.uk/wp-content/uploads/2024/12/Unilever-SVG-to-PNG.png",
+      alt: "Unilever Logo",
+    },
+    {
+      src: "https://profici.co.uk/wp-content/uploads/2024/12/2560px-Tata_Consultancy_Services_Logo.svg_.png",
+      alt: "TCS Logo",
+    },
+    {
+      src: "https://profici.co.uk/wp-content/uploads/2024/12/aolf_logo_1.png",
+      alt: "AOLF Logo",
+    },
+    {
+      src: "https://profici.co.uk/wp-content/uploads/2024/12/1200px-Google_2015_logo.svg_.png",
+      alt: "Google Logo",
+    },
+    {
+      src: "https://profici.co.uk/wp-content/uploads/2024/12/1200px-Meta-Logo.png",
+      alt: "Meta Logo",
+    },
+    {
+      src: "https://profici.co.uk/wp-content/uploads/2024/12/1200px-GSK_logo_2014.svg_.png",
+      alt: "GSK Logo",
+    },
+    {
+      src: "https://profici.co.uk/wp-content/uploads/2024/12/Marriott-International-Logo-2016-present-scaled.jpg",
+      alt: "Marriott Logo",
     },
   ];
 
