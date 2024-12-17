@@ -275,13 +275,13 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
             >
-              Born from the realisation that Traditional Networking Events fall
-              short, The Directors Box is an Exclusive Private Members' Club
-              created for Ambitious Business Leaders, offering a Sophisticated
-              Platform where Genuine Value, Meaningful Connections, and
-              Impactful Results converge. <br />
-              <br /> Experience a New Standard in Community Building—designed to
-              elevate your Professional Success.
+              Born from the realisation that traditional networking events fall
+              short, The Directors Box is an exclusive private members' club
+              created for ambitious business leaders, offering a sophisticated
+              platform where genuine value, meaningful connections, and
+              impactful results converge. <br />
+              <br /> Experience a new standard in community building—designed to
+              elevate your professional success.
             </motion.p>
             <motion.div
               className="flex flex-col items-center gap-4 mt-10"
