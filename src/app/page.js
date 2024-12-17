@@ -18,6 +18,18 @@ export default function Home() {
   const playerRef = useRef(null);
   const [showButton, setShowButton] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
+  const videosophieRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    if (videosophieRef.current) {
+      if (isPlaying) {
+        videosophieRef.current.play();
+      } else {
+        videosophieRef.current.pause();
+      }
+    }
+  }, [isPlaying]);
 
   const cards = [
     {
@@ -509,6 +521,119 @@ export default function Home() {
               opportunities for our members.
             </p>
             <ExpandableCard cards={cards} />
+          </div>
+        </motion.section>
+        <motion.section
+          className="py-12 md:py-24"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                viewport={{ once: true }}
+                className="relative aspect-[9/16] md:aspect-[16/9] rounded-xl overflow-hidden w-full h-full"
+              >
+                <div className="relative w-full h-full">
+                  <video
+                    src="https://profici.co.uk/wp-content/uploads/2024/11/DMR-3-CC-1-1.mp4"
+                    className="w-full h-full object-contain"
+                    playsInline
+                    ref={videosophieRef}
+                    style={{
+                      aspectRatio: isMobile ? "9/16" : "16/9",
+                      maxWidth: "100%",
+                    }}
+                  />
+                  <motion.button
+                    className={`absolute inset-0 flex items-center z-10 justify-center `}
+                    onClick={() => setIsPlaying(!isPlaying)}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    {isPlaying ? (
+                      <motion.svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="white"
+                        className="w-8 h-8 md:w-12 md:h-12"
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                        transition={{ type: "spring", stiffness: 200 }}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M15.75 5.25v13.5m-7.5-13.5v13.5"
+                        />
+                      </motion.svg>
+                    ) : (
+                      <motion.svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="white"
+                        className="w-8 h-8 md:w-12 md:h-12"
+                        initial={{ scale: 0 }}
+                        animate={{ scale: 1 }}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347c-.75.412-1.667-.13-1.667-.986V5.653Z"
+                        />
+                      </motion.svg>
+                    )}
+                  </motion.button>
+                  <img
+                    src="https://profici.co.uk/wp-content/uploads/2024/12/C-suite-Thumbnails-Canva.png"
+                    alt="Video thumbnail"
+                    className="absolute inset-0 w-full h-full object-contain"
+                    style={{
+                      display: isPlaying ? "none" : "block",
+                      aspectRatio: isMobile ? "9/16" : "16/9",
+                    }}
+                  />
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                viewport={{ once: true }}
+                className="flex flex-col justify-center"
+              >
+                <h2 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">
+                  A Word From Sophie, <br />
+                  Our Events Manager
+                </h2>
+                <p className="text-gray-600 text-base md:text-lg leading-relaxed">
+                  "At Directors Box, we create more than just networking events
+                  - we craft transformative experiences. I personally ensure
+                  each gathering is meticulously planned to facilitate genuine
+                  connections between ambitious professionals. Our intimate
+                  breakfast meetings and exclusive roundtables provide the
+                  perfect setting for meaningful business relationships to
+                  flourish."
+                </p>
+                <p className="text-gray-600 text-base md:text-lg leading-relaxed mt-4">
+                  "What sets us apart is our commitment to quality over
+                  quantity. We carefully curate our guest list to bring together
+                  the right mix of industry leaders, ensuring every interaction
+                  has the potential to create lasting value for our members. I
+                  invite you to experience the Directors Box difference for
+                  yourself."
+                </p>
+              </motion.div>
+            </div>
           </div>
         </motion.section>
 
