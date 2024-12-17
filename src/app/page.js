@@ -432,7 +432,7 @@ export default function Home() {
                       d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
                     />
                   </svg>
-                  <h3 className="text-xl font-bold">C-Suite Repository</h3>
+                  <h3 className="text-xl font-bold">C-Suite Access</h3>
                 </div>
                 <p className="text-gray-600">
                   Get Exclusive access to Our C-suite worth £1500 for free. Gain
