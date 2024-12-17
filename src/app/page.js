@@ -491,7 +491,7 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             Our C-Suite experts have held senior positions at leading
-            organizations. Join an exclusive network of businesses that have
+            organisations. Join an exclusive network of businesses that have
             experienced the Directors Box difference.
           </motion.p>
           <LogoStrip />
