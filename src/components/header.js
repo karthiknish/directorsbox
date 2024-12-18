@@ -17,7 +17,7 @@ const Header = () => {
             href="https://directorsbox.co.uk"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-shrink-0 mx-4 md:absolute md:left-1/2 md:transform md:-translate-x-1/2"
+            className="flex-shrink-0 mx-4 md:absolute md:left-1/2 md:top-1/2 md:transform md:-translate-x-1/2 md:-translate-y-1/2"
           >
             <Image
               src="/logo.svg"
