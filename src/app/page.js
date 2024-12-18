@@ -9,6 +9,7 @@ import Pdf from "../components/pdf";
 import { sendGTMEvent } from "@next/third-parties/google";
 import Flowchart from "../components/flowchart";
 import LogoStrip from "../components/logostrip";
+import Perks from "../components/perks";
 export default function Home() {
   const [playingStates, setPlayingStates] = useState({
     mainVideo: false,
@@ -341,7 +342,7 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              Exclusive Member Benefits
+              Our Benefits
               <span className="block text-xl mt-2 text-gray-600">
                 Included in your £2,000 monthly membership
               </span>
@@ -770,7 +771,7 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.section>
-
+        <Perks />
         <motion.section
           className="py-24 bg-gray-50 rounded-3xl"
           initial={{ opacity: 0 }}

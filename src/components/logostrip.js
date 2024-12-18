@@ -113,6 +113,9 @@ const LogoStrip = () => {
     },
   ];
 
+  // Calculate total width of logos for animation
+  const totalWidth = logos.length * (isMobile ? 160 : 224); // w-40 = 160px, space-x-16 = 64px
+
   return (
     <motion.div
       className="w-full overflow-hidden bg-white py-12"
@@ -123,13 +126,13 @@ const LogoStrip = () => {
       <motion.div
         className="flex space-x-8 md:space-x-16"
         animate={{
-          x: isMobile ? [0, -1000] : [0, -2000],
+          x: isMobile ? [-totalWidth / 2, 0] : [-totalWidth, 0],
         }}
         transition={{
           x: {
             repeat: Infinity,
             repeatType: "loop",
-            duration: 30,
+            duration: 50,
             ease: "linear",
           },
         }}
@@ -151,7 +154,7 @@ const LogoStrip = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{
                 duration: 0.5,
-                delay: (index * 0.1) % 1, // Stagger effect that repeats every 10 logos
+                delay: (index * 0.1) % 2.4, // Increased delay to cover more logos
               }}
             />
           </motion.div>
