@@ -114,7 +114,12 @@ const LogoStrip = () => {
   ];
 
   return (
-    <div className="w-full overflow-hidden bg-white py-12">
+    <motion.div
+      className="w-full overflow-hidden bg-white py-12"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+    >
       <motion.div
         className="flex space-x-8 md:space-x-16"
         animate={{
@@ -130,16 +135,29 @@ const LogoStrip = () => {
         }}
       >
         {[...logos, ...logos].map((logo, index) => (
-          <div key={index} className="flex-shrink-0 w-32 md:w-40 h-20 relative">
-            <img
+          <motion.div
+            key={index}
+            className="flex-shrink-0 w-32 md:w-40 h-20 relative"
+            whileHover={{
+              scale: 1.1,
+              transition: { duration: 0.2 },
+            }}
+          >
+            <motion.img
               src={logo.src}
               alt={logo.alt}
               className="w-full h-full object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.5,
+                delay: (index * 0.1) % 1, // Stagger effect that repeats every 10 logos
+              }}
             />
-          </div>
+          </motion.div>
         ))}
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -22,6 +22,28 @@ export default function Flowchart() {
     transition: { duration: 0.5 },
   };
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
     <motion.div
       className="w-full max-w-6xl mx-auto px-4 py-8 overflow-x-auto"
@@ -32,30 +54,45 @@ export default function Flowchart() {
       <div className={`relative ${isMobile ? "min-w-full" : "min-w-[1000px]"}`}>
         {/* Timeline line and arrows */}
         {!isMobile && (
-          <div className="absolute left-0 right-0 top-[20px] flex items-center">
+          <motion.div
+            className="absolute left-0 right-0 top-[20px] flex items-center"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
             <div className="h-0.5 bg-gray-200 flex-grow relative">
               {[...Array(5)].map((_, i) => (
-                <div
+                <motion.div
                   key={i}
                   className="absolute top-1/2"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.8 + i * 0.1 }}
                   style={{
                     left: `${(i + 1) * (100 / 6)}%`,
                   }}
                 >
                   <div className="w-3 h-3 border-t-2 border-r-2 border-gray-200 transform rotate-45 translate-y-[-4px]" />
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
         )}
 
-        <div
+        <motion.div
           className={`relative ${
             isMobile ? "flex flex-col gap-8" : "flex gap-8"
           } mt-8`}
+          variants={container}
+          initial="hidden"
+          animate="show"
         >
           {/* Step 1 */}
-          <div className={`${isMobile ? "w-full" : "flex-1"}`}>
+          <motion.div
+            className={`${isMobile ? "w-full" : "flex-1"}`}
+            variants={item}
+            whileHover={{ scale: 1.05 }}
+          >
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center z-10 mb-4">
                 <span className="text-white text-2xl">DB</span>
@@ -67,10 +104,14 @@ export default function Flowchart() {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Step 2 */}
-          <div className={`${isMobile ? "w-full" : "flex-1"}`}>
+          <motion.div
+            className={`${isMobile ? "w-full" : "flex-1"}`}
+            variants={item}
+            whileHover={{ scale: 1.05 }}
+          >
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center z-10 mb-4">
                 <svg
@@ -92,10 +133,14 @@ export default function Flowchart() {
                 <p className="text-gray-600">One-time payment of £195</p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Step 3 */}
-          <div className={`${isMobile ? "w-full" : "flex-1"}`}>
+          <motion.div
+            className={`${isMobile ? "w-full" : "flex-1"}`}
+            variants={item}
+            whileHover={{ scale: 1.05 }}
+          >
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center z-10 mb-4">
                 <svg
@@ -115,10 +160,14 @@ export default function Flowchart() {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Step 4 */}
-          <div className={`${isMobile ? "w-full" : "flex-1"}`}>
+          <motion.div
+            className={`${isMobile ? "w-full" : "flex-1"}`}
+            variants={item}
+            whileHover={{ scale: 1.05 }}
+          >
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center z-10 mb-4">
                 <svg
@@ -140,10 +189,14 @@ export default function Flowchart() {
                 </p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Step 5 */}
-          <div className={`${isMobile ? "w-full" : "flex-1"}`}>
+          <motion.div
+            className={`${isMobile ? "w-full" : "flex-1"}`}
+            variants={item}
+            whileHover={{ scale: 1.05 }}
+          >
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center z-10 mb-4">
                 <svg
@@ -165,10 +218,14 @@ export default function Flowchart() {
                 <p className="text-gray-600">£2000 monthly subscription</p>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Step 6 */}
-          <div className={`${isMobile ? "w-full" : "flex-1"}`}>
+          <motion.div
+            className={`${isMobile ? "w-full" : "flex-1"}`}
+            variants={item}
+            whileHover={{ scale: 1.05 }}
+          >
             <div className="flex flex-col items-center">
               <div className="w-12 h-12 bg-black rounded-full flex items-center justify-center z-10 mb-4">
                 <svg
@@ -190,8 +247,8 @@ export default function Flowchart() {
                 </p>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </motion.div>
   );
