@@ -51,7 +51,7 @@ export default function Perks() {
     {
       icon: <Headphones className="w-6 h-6" />,
       title: "Podcast Feature",
-      description: "Opportunity to appear on the Profici podcast",
+      description: "Opportunity to appear on The Profici Podcast",
     },
   ];
 
