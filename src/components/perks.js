@@ -46,7 +46,7 @@ export default function Perks() {
     {
       icon: <PhoneCall className="w-6 h-6" />,
       title: "Concierge Service",
-      description: "24/7 premium concierge assistance",
+      description: "Premium concierge assistance",
     },
     {
       icon: <Headphones className="w-6 h-6" />,
