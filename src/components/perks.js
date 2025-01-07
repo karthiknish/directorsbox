@@ -41,7 +41,7 @@ export default function Perks() {
     {
       icon: <GraduationCap className="w-6 h-6" />,
       title: "Oxford Courses",
-      description: "Exclusive access to Oxford University courses",
+      description: "Exclusive access to Oxford College courses",
     },
     {
       icon: <PhoneCall className="w-6 h-6" />,
