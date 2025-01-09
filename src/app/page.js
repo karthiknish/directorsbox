@@ -10,6 +10,7 @@ import { sendGTMEvent } from "@next/third-parties/google";
 import Flowchart from "../components/flowchart";
 import LogoStrip from "../components/logostrip";
 import Perks from "../components/perks";
+
 export default function Home() {
   const [playingStates, setPlayingStates] = useState({
     mainVideo: false,
@@ -22,6 +23,21 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const videosophieRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    // Set initial mobile state
+    setIsMobile(window.innerWidth <= 768);
+
+    // Add resize listener
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   useEffect(() => {
     if (videosophieRef.current) {
@@ -127,17 +143,6 @@ export default function Home() {
       ),
     },
   ];
-
-  useEffect(() => {
-    setIsMobile(window.innerWidth <= 768);
-
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   const fadeIn = {
     initial: { opacity: 0, y: 20 },
@@ -518,7 +523,7 @@ export default function Home() {
           <Flowchart />
         </motion.div>
         <motion.section
-          className="py-12  rounded-3xl"
+          className="py-12 rounded-3xl"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
@@ -560,17 +565,21 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
                 viewport={{ once: true }}
-                className="relative aspect-[9/16] md:aspect-[16/9] rounded-xl overflow-hidden w-full h-full"
+                className="relative aspect-[9/16] rounded-xl overflow-hidden w-full h-full"
               >
                 <div className="relative w-full h-full">
                   <video
                     src="https://profici.co.uk/wp-content/uploads/2024/11/DMR-3-CC-1-1.mp4"
-                    className="w-full h-full object-contain"
+                    width="100%"
+                    height="100%"
                     playsInline
                     ref={videosophieRef}
+                    preload="auto"
                     style={{
-                      aspectRatio: isMobile ? "9/16" : "16/9",
+                      aspectRatio: "9/16",
                       maxWidth: "100%",
+                      objectFit: "cover",
+                      height: "100%",
                     }}
                   />
                   <motion.button
@@ -615,13 +624,21 @@ export default function Home() {
                       </motion.svg>
                     )}
                   </motion.button>
+                  <div
+                    className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300"
+                    style={{
+                      opacity: videosophieRef.current?.readyState < 3 ? 1 : 0,
+                    }}
+                  >
+                    <div className="w-12 h-12 border-4 border-gray-300 border-t-white rounded-full animate-spin"></div>
+                  </div>
                   <img
                     src="https://profici.co.uk/wp-content/uploads/2024/12/C-suite-Thumbnails-Canva.png"
                     alt="Video thumbnail"
                     className="absolute inset-0 w-full h-full object-contain"
                     style={{
                       display: isPlaying ? "none" : "block",
-                      aspectRatio: isMobile ? "9/16" : "16/9",
+                      aspectRatio: "9/16",
                     }}
                   />
                 </div>
