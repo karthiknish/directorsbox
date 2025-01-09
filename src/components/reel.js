@@ -41,11 +41,31 @@ const VideoReel = ({ videos, posters }) => {
                 playing={playingStates[videoId]}
                 controls={false}
                 playsinline={true}
+                onEnded={() => {
+                  setPlayingStates((prev) => ({
+                    ...prev,
+                    [videoId]: false,
+                  }));
+                }}
                 config={{
                   file: {
                     attributes: {
                       playsInline: true,
                       webkitPlaysinline: "true",
+                      preload: "auto",
+                    },
+                    forceVideo: true,
+                    quality: {
+                      default: 720,
+                      options: [1080, 720, 480],
+                    },
+                    hlsQualitySelector: true,
+                    hlsOptions: {
+                      maxLoadingDelay: 4,
+                      minAutoBitrate: 0,
+                      lowLatencyMode: true,
+                      enableWorker: true,
+                      startLevel: 1,
                     },
                   },
                 }}
@@ -94,12 +114,13 @@ const VideoReel = ({ videos, posters }) => {
                   </motion.svg>
                 )}
               </motion.button>
-              <img
-                src={posters[index]}
-                alt="Video thumbnail"
-                className="absolute inset-0 w-full h-full object-cover"
-                style={{ display: playingStates[videoId] ? "none" : "block" }}
-              />
+              {!playingStates[videoId] && (
+                <img
+                  src={posters[index]}
+                  alt="Video thumbnail"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              )}
             </div>
           </motion.div>
         );
