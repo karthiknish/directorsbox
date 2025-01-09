@@ -569,7 +569,7 @@ export default function Home() {
               >
                 <div className="relative w-full h-full">
                   <video
-                    src="https://profici.co.uk/wp-content/uploads/2024/11/DMR-3-CC-1-1.mp4"
+                    src="https://profici.co.uk/wp-content/uploads/2025/01/DMR-Soph.mp4"
                     width="100%"
                     height="100%"
                     playsInline
