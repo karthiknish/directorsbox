@@ -80,9 +80,11 @@ export default function Join() {
     phone: "",
   });
   const [showPayment, setShowPayment] = useState(false);
+  const [error, setError] = useState("");
 
   const handleInitialSubmit = async (e) => {
     e.preventDefault();
+    setError("");
     try {
       const response = await fetch("/api/create-subscription", {
         method: "POST",
@@ -93,12 +95,16 @@ export default function Join() {
       });
 
       const data = await response.json();
-      if (!response.ok) throw new Error(data.error);
+      if (!response.ok) {
+        setError(data.error);
+        return;
+      }
 
       setClientSecret(data.clientSecret);
       setShowPayment(true);
     } catch (error) {
       console.error("Error:", error);
+      setError("An unexpected error occurred. Please try again.");
     }
   };
 
@@ -121,6 +127,12 @@ export default function Join() {
           <p className="text-gray-600">First month: £195</p>
           <p className="text-gray-600">Then £2,000 per month</p>
         </div>
+
+        {error && (
+          <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+            {error}
+          </div>
+        )}
 
         {!showPayment ? (
           <form onSubmit={handleInitialSubmit} className="space-y-6">

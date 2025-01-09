@@ -40,6 +40,15 @@ const VideoReel = ({ videos, posters }) => {
                 height="100%"
                 playing={playingStates[videoId]}
                 controls={false}
+                playsinline={true}
+                config={{
+                  file: {
+                    attributes: {
+                      playsInline: true,
+                      webkitPlaysinline: "true",
+                    },
+                  },
+                }}
               />
               <motion.button
                 className={`absolute inset-0 flex items-center z-10 justify-center ${
