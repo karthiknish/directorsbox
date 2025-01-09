@@ -1,11 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import ReactPlayer from "react-player";
 
 const VideoReel = ({ videos, posters }) => {
   const [playingStates, setPlayingStates] = useState(
+    Object.fromEntries(videos.map((_, i) => [`video${i + 1}`, false]))
+  );
+
+  const [bufferingStates, setBufferingStates] = useState(
     Object.fromEntries(videos.map((_, i) => [`video${i + 1}`, false]))
   );
 
@@ -43,6 +47,18 @@ const VideoReel = ({ videos, posters }) => {
                 playsinline={true}
                 onEnded={() => {
                   setPlayingStates((prev) => ({
+                    ...prev,
+                    [videoId]: false,
+                  }));
+                }}
+                onBuffer={() => {
+                  setBufferingStates((prev) => ({
+                    ...prev,
+                    [videoId]: true,
+                  }));
+                }}
+                onBufferEnd={() => {
+                  setBufferingStates((prev) => ({
                     ...prev,
                     [videoId]: false,
                   }));
@@ -114,6 +130,11 @@ const VideoReel = ({ videos, posters }) => {
                   </motion.svg>
                 )}
               </motion.button>
+              {bufferingStates[videoId] && (
+                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                  <div className="w-12 h-12 border-4 border-gray-300 border-t-white rounded-full animate-spin"></div>
+                </div>
+              )}
               {!playingStates[videoId] && (
                 <img
                   src={posters[index]}
