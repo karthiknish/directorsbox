@@ -4,8 +4,8 @@ import nodemailer from "nodemailer";
 import fs from "fs";
 import path from "path";
 
-if (!process.env.STRIPE_SECRET_KEY) {
-  throw new Error("Missing required STRIPE_SECRET_KEY environment variable");
+if (!process.env.STRIPE_SECRET_KEY || !process.env.STRIPE_WEBHOOK_SECRET) {
+  throw new Error("Missing required environment variables");
 }
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
@@ -89,144 +89,74 @@ async function sendEmail({ to, subject, html, isTransactional = true }) {
 
 export async function POST(request) {
   try {
-    const body = await request.json();
-    const { email, name, phone } = body;
+    // Verify webhook signature
+    const signature = request.headers.get("stripe-signature");
+    let event;
 
-    // Check if customer already exists
-    const existingCustomers = await stripe.customers.list({
-      email: email,
-      limit: 1,
-    });
-
-    let customer;
-    if (existingCustomers.data.length > 0) {
-      customer = existingCustomers.data[0];
-
-      // Check for existing active subscriptions
-      const existingSubscriptions = await stripe.subscriptions.list({
-        customer: customer.id,
-        status: "active",
-        limit: 1,
-      });
-
-      if (existingSubscriptions.data.length > 0) {
-        return NextResponse.json(
-          { error: "Customer already has an active subscription" },
-          { status: 400 }
-        );
-      }
-
-      // Check for existing successful £195 payment
-      const existingPayments = await stripe.paymentIntents.list({
-        customer: customer.id,
-        limit: 100,
-      });
-
-      console.log(existingPayments.data);
-
-      const hasInitialPayment = existingPayments.data.some(
-        (payment) => payment.object === "refund"
+    try {
+      const rawBody = await request.text();
+      event = stripe.webhooks.constructEvent(
+        rawBody,
+        signature,
+        process.env.STRIPE_WEBHOOK_SECRET
       );
-
-      if (hasInitialPayment) {
-        return NextResponse.json(
-          { error: "Initial payment has already been made for this customer" },
-          { status: 400 }
-        );
-      }
-    } else {
-      // Create new customer if none exists
-      customer = await stripe.customers.create({
-        email,
-        name,
-        phone,
-        metadata: {
-          joinDate: new Date().toISOString(),
-        },
-      });
+    } catch (err) {
+      return NextResponse.json(
+        { error: `Webhook Error: ${err.message}` },
+        { status: 400 }
+      );
     }
 
-    // Create subscription with initial payment and recurring payment
-    const subscription = await stripe.subscriptions.create({
-      customer: customer.id,
-      items: [
-        {
-          price: process.env.STRIPE_PRICE_ID,
-        },
-      ],
-      payment_behavior: "default_incomplete",
-      payment_settings: { save_default_payment_method: "on_subscription" },
-      expand: ["latest_invoice.payment_intent"],
-      trial_period_days: 30,
-    });
+    // Handle payment_intent.succeeded event
+    if (event.type === "payment_intent.succeeded") {
+      const paymentIntent = event.data.object;
+      const { customerEmail, customerName, subscriptionId } =
+        paymentIntent.metadata;
 
-    // Create a payment intent for the first month's £195
-    const initialPayment = await stripe.paymentIntents.create({
-      amount: 19500,
-      currency: "gbp",
-      customer: customer.id,
-      payment_method_types: ["card"],
-      metadata: {
-        type: "initial_payment",
-        customerEmail: email,
-        customerName: name,
-        subscriptionId: subscription.id,
-        requiresWelcomeEmail: "true",
-      },
-    });
+      // Send success email to customer
+      await sendEmail({
+        to: customerEmail,
+        subject: "Payment Successful - Directors Box",
+        html: `
+          <h2 style="color: #2e7d32;">Payment Successful</h2>
+          <div style="background: #e8f5e9; padding: 20px; border-radius: 5px;">
+            <p>Dear ${customerName},</p>
+            <p>Thank you for your payment. Your subscription is now active.</p>
+            <p>Subscription ID: ${subscriptionId}</p>
+          </div>
+        `,
+      });
 
-    // Send welcome email to customer
-    await sendEmail({
-      to: email,
-      subject: "Welcome to Directors Box!",
-      html: `
-        <h2 style="color: #2e7d32;">Welcome to Directors Box!</h2>
-        <div style="background: #e8f5e9; padding: 20px; border-radius: 5px;">
-          <p>Dear ${name},</p>
-          <p>Thank you for subscribing to Directors Box! We're excited to have you on board.</p>
-          <p>Your subscription details:</p>
-          <ul>
-            <li>Initial payment: £195</li>
-            <li>Monthly subscription: £2000 (starts after 30-day trial)</li>
-            <li>Subscription ID: ${subscription.id}</li>
-          </ul>
-          <p>If you have any questions, please don't hesitate to contact us at info@directorsbox.co.uk</p>
-        </div>
-      `,
-    });
+      // Send notification to admin
+      await sendEmail({
+        to: "info@directorsbox.co.uk",
+        subject: "Payment Successful - Directors Box",
+        html: `
+          <h2 style="color: #2e7d32;">Payment Successful</h2>
+          <div style="background: #e8f5e9; padding: 20px; border-radius: 5px;">
+            <p><strong>Customer:</strong> ${customerName}</p>
+            <p><strong>Email:</strong> ${customerEmail}</p>
+            <p><strong>Subscription ID:</strong> ${subscriptionId}</p>
+            <p><strong>Payment Amount:</strong> £${
+              paymentIntent.amount / 100
+            }</p>
+          </div>
+        `,
+      });
 
-    // Send notification email about successful subscription creation
-    await sendEmail({
-      to: "info@directorsbox.co.uk",
-      subject: "New Subscription Created - Directors Box",
-      html: `
-        <h2 style="color: #2e7d32;">New Subscription Created</h2>
-        <div style="background: #e8f5e9; padding: 20px; border-radius: 5px;">
-          <p><strong>Customer Name:</strong> ${name}</p>
-          <p><strong>Customer Email:</strong> ${email}</p>
-          <p><strong>Customer Phone:</strong> ${phone}</p>
-          <p><strong>Subscription ID:</strong> ${subscription.id}</p>
-          <p><strong>Time:</strong> ${new Date().toLocaleString("en-GB", {
-            timeZone: "Europe/London",
-          })}</p>
-        </div>
-      `,
-    });
+      return NextResponse.json({ received: true });
+    }
 
-    // Return payment details
-    return NextResponse.json({
-      subscriptionId: subscription.id,
-      clientSecret: initialPayment.client_secret,
-    });
+    return NextResponse.json({ received: true });
   } catch (error) {
-    console.error("Subscription error:", error);
+    console.error("Webhook error:", error);
 
     // Send notification email about error
     await sendEmail({
       to: "info@directorsbox.co.uk",
-      subject: "Subscription Creation Error - Directors Box",
+      subject: "Webhook Error - Directors Box",
       html: `
-        <h2 style="color: #d32f2f;">Error Creating Subscription - Directors Box</h2>
+        <h2 style="color: #d32f2f;">Webhook Error</h2>
         <div style="background: #ffebee; padding: 20px; border-radius: 5px;">
           <p><strong>Error Message:</strong> ${error.message}</p>
           <p><strong>Time:</strong> ${new Date().toLocaleString("en-GB", {
@@ -240,9 +170,6 @@ export async function POST(request) {
       `,
     });
 
-    return NextResponse.json(
-      { error: "Failed to create subscription" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Webhook failed" }, { status: 500 });
   }
 }
