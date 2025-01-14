@@ -12,7 +12,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 // Read logo SVG file
 const logoSvg = fs.readFileSync(
-  path.join(process.cwd(), "public/logo.svg"),
+  path.join(process.cwd(), "public/logo.png"),
   "utf8"
 );
 
