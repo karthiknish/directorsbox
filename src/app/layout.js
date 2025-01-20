@@ -33,6 +33,17 @@ export const metadata = {
   title: "Directors Box By Profici",
   description:
     "Directors Box is an exclusive, high-level networking group for business leaders and entrepreneurs, offering premium connections, strategic partnerships, and collaborative opportunities in a confidential environment. Join fellow directors and decision-makers in this carefully curated business community focused on growth, innovation, and mutual success.",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({ children }) {

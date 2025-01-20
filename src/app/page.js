@@ -170,6 +170,14 @@ export default function Home() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.8 }}
     >
+      <head>
+        <title>Directors Box By Profici</title>
+        <meta
+          name="description"
+          content="Directors Box is an exclusive, high-level networking group for business leaders and entrepreneurs, offering premium connections, strategic partnerships, and collaborative opportunities in a confidential environment."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
       <main className="container mx-auto space-y-16">
         <motion.div
           className="flex flex-col items-center gap-8 xl:py-12 max-w-4xl mx-auto"
