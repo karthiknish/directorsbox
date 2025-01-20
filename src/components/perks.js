@@ -9,6 +9,9 @@ import {
   HeadphonesIcon,
   Headphones,
   PhoneCall,
+  Stethoscope,
+  Gem,
+  ShoppingCart,
 } from "lucide-react";
 
 export default function Perks() {
@@ -19,19 +22,49 @@ export default function Perks() {
       description: "Complimentary access to premium airport lounges worldwide",
     },
     {
-      icon: <Hotel className="w-6 h-6" />,
-      title: "Premium Hotels",
-      description: "Exclusive discounts at luxury hotels and resorts",
-    },
-    {
       icon: <Car className="w-6 h-6" />,
       title: "Car Rental",
       description: "Preferential rates on car rentals globally",
     },
     {
+      icon: <PhoneCall className="w-6 h-6" />,
+      title: "Concierge Service",
+      description: "Premium concierge assistance",
+    },
+    {
       icon: <Plane className="w-6 h-6" />,
       title: "Flight Discounts",
       description: "Special rates on business and first-class flights",
+    },
+    {
+      icon: <GraduationCap className="w-6 h-6" />,
+      title: "Oxford Courses",
+      description: "Exclusive access to Oxford College courses",
+    },
+    {
+      icon: <Gem className="w-6 h-6" />,
+      title: "Boodles Experience",
+      description: "Personalised shopping experience at Boodles",
+    },
+    {
+      icon: <ShoppingCart className="w-6 h-6" />,
+      title: "Union 22 Experience",
+      description: "Personalised shopping experience at Union 22",
+    },
+    {
+      icon: <Headphones className="w-6 h-6" />,
+      title: "Podcast Feature",
+      description: "Opportunity to appear on The Profici Podcast",
+    },
+    {
+      icon: <Hotel className="w-6 h-6" />,
+      title: "Premium Hotels",
+      description: "Exclusive discounts at luxury hotels and resorts",
+    },
+    {
+      icon: <Stethoscope className="w-6 h-6" />,
+      title: "Private GP Access",
+      description: "Private Same Day GP Appointments",
     },
     {
       icon: <ShoppingBag className="w-6 h-6" />,
@@ -40,18 +73,8 @@ export default function Perks() {
     },
     {
       icon: <GraduationCap className="w-6 h-6" />,
-      title: "Oxford Courses",
-      description: "Exclusive access to Oxford College courses",
-    },
-    {
-      icon: <PhoneCall className="w-6 h-6" />,
-      title: "Concierge Service",
-      description: "Premium concierge assistance",
-    },
-    {
-      icon: <Headphones className="w-6 h-6" />,
-      title: "Podcast Feature",
-      description: "Opportunity to appear on The Profici Podcast",
+      title: "Business Mentoring",
+      description: "Mentoring sessions with industry leaders",
     },
   ];
 

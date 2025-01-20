@@ -331,7 +331,6 @@ export default function Home() {
             </motion.div>
           </motion.div>
         </motion.div>
-
         <motion.section
           className="py-24 bg-gray-50 rounded-3xl"
           initial={{ opacity: 0, y: 50 }}
@@ -339,7 +338,7 @@ export default function Home() {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <div className="max-w-4xl mx-auto px-4">
+          <div className="max-w-6xl mx-auto px-4">
             <motion.h2
               className="text-3xl md:text-4xl font-bold mb-12 text-center"
               initial={{ opacity: 0, y: 20 }}
@@ -353,7 +352,7 @@ export default function Home() {
               </span>
             </motion.h2>
             <motion.div
-              className="grid md:grid-cols-2 gap-8"
+              className="grid md:grid-cols-3 gap-8"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.8, staggerChildren: 0.2 }}
@@ -476,6 +475,67 @@ export default function Home() {
                   between complementary businesses, enabling joint ventures and
                   resource sharing. Access our network of vetted business
                   leaders to create opportunities for growth.
+                </p>
+              </motion.div>
+              <motion.div
+                className="bg-white p-6 rounded-xl shadow-sm"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-8 w-8 text-gray-800"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
+                  <h3 className="text-xl font-bold">
+                    Event Management & Planning
+                  </h3>
+                </div>
+                <p className="text-gray-600">
+                  Let our experienced team handle all aspects of your corporate
+                  events, from intimate business meetings to large-scale
+                  conferences. We provide end-to-end event management services,
+                  ensuring flawless execution and memorable experiences.
+                </p>
+              </motion.div>
+              <motion.div
+                className="bg-white p-6 rounded-xl shadow-sm"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-8 w-8 text-gray-800"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                    />
+                  </svg>
+                  <h3 className="text-xl font-bold">Lead Generation</h3>
+                </div>
+                <p className="text-gray-600">
+                  Benefit from our targeted lead generation services that
+                  connect you with qualified prospects in your industry. We
+                  leverage our extensive network and advanced targeting
+                  strategies to deliver high-quality business opportunities
+                  directly to you.
                 </p>
               </motion.div>
             </motion.div>
@@ -789,7 +849,7 @@ export default function Home() {
           </div>
         </motion.section>
         <Perks />
-        <motion.section
+        {/* <motion.section
           className="py-24 bg-gray-50 rounded-3xl"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -813,7 +873,7 @@ export default function Home() {
               transition={{ duration: 0.8, staggerChildren: 0.2 }}
               viewport={{ once: true }}
             >
-              {/* Vertical line */}
+             
               <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-300 md:left-1/2" />
 
               <div className="space-y-12">
@@ -837,7 +897,7 @@ export default function Home() {
                     </motion.div>
                   </div>
                   <div className="hidden md:block" />
-                  {/* Circle marker */}
+                
                   <div className="absolute left-0 md:left-1/2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black rounded-full transform -translate-x-1/2 flex items-center justify-center">
                     <span className="text-white text-sm">1</span>
                   </div>
@@ -863,7 +923,7 @@ export default function Home() {
                       </p>
                     </motion.div>
                   </div>
-                  {/* Circle marker */}
+                
                   <div className="absolute left-0 md:left-1/2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black rounded-full transform -translate-x-1/2 flex items-center justify-center">
                     <span className="text-white text-sm">2</span>
                   </div>
@@ -890,7 +950,7 @@ export default function Home() {
                     </motion.div>
                   </div>
                   <div className="hidden md:block" />
-                  {/* Circle marker */}
+                 
                   <div className="absolute left-0 md:left-1/2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black rounded-full transform -translate-x-1/2 flex items-center justify-center">
                     <span className="text-white text-sm">3</span>
                   </div>
@@ -898,7 +958,7 @@ export default function Home() {
               </div>
             </motion.div>
           </div>
-        </motion.section>
+        </motion.section> */}
         <motion.div className="text-center mb-16">
           <motion.h2
             className="text-4xl md:text-5xl font-bold mb-4"
