@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 .brochure-form input[type="submit"] {
   background: black !important;
 }

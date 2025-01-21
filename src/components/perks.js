@@ -13,8 +13,9 @@ import {
   Gem,
   ShoppingCart,
 } from "lucide-react";
+import { Button } from "../components/ui/button";
 
-export default function Perks() {
+export default function Perks({ scrollToConsultation }) {
   const perks = [
     {
       icon: <Plane className="w-6 h-6" />,
@@ -127,6 +128,24 @@ export default function Perks() {
                 </motion.div>
               ))}
             </div>
+            <motion.div className="flex justify-center mt-12">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button
+                  size="lg"
+                  className="w-fit"
+                  data-scroll-trigger="true"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    scrollToConsultation();
+                  }}
+                >
+                  Enquire Now
+                </Button>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </div>

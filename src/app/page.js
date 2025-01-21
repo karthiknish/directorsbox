@@ -210,7 +210,7 @@ export default function Home() {
         >
           <motion.div className="text-center" variants={fadeIn}>
             <motion.h1
-              className="text-4xl md:text-4xl font-bold leading-tight text-gray-900 mb-2"
+              className="text-5xl font-bold leading-tight text-gray-900 mb-2"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
@@ -570,8 +570,28 @@ export default function Home() {
                 </p>
               </motion.div>
             </motion.div>
+            <motion.div className="flex justify-center mt-12">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button
+                  size="lg"
+                  className="w-fit"
+                  data-scroll-trigger="true"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    scrollToConsultation();
+                  }}
+                >
+                  Enquire Now
+                </Button>
+              </motion.div>
+            </motion.div>
           </div>
         </motion.section>
+        <Perks scrollToConsultation={scrollToConsultation} />
+
         <motion.div className="text-center mb-16">
           <motion.h2
             className="text-4xl md:text-5xl font-bold mb-4"
@@ -879,7 +899,7 @@ export default function Home() {
             </motion.div>
           </div>
         </motion.section>
-        <Perks />
+
         {/* <motion.section
           className="py-24 bg-gray-50 rounded-3xl"
           initial={{ opacity: 0 }}
