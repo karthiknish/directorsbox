@@ -144,6 +144,25 @@ export async function POST(request) {
         `,
       });
 
+      // After successful subscription creation
+      const metaResponse = await fetch("/api/meta-conversion", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: customerEmail,
+          name: customerName,
+          phone: "",
+          eventName: "Purchase",
+          value: 195.0,
+        }),
+      });
+
+      if (!metaResponse.ok) {
+        console.error("Failed to send Meta conversion event");
+      }
+
       return NextResponse.json({ received: true });
     }
 
