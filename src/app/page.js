@@ -783,6 +783,24 @@ export default function Home() {
                   invite you to experience the Directors Box difference for
                   yourself."
                 </p>
+                <motion.div className="flex justify-center mt-12">
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Button
+                      size="lg"
+                      className="w-fit"
+                      data-scroll-trigger="true"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        scrollToConsultation();
+                      }}
+                    >
+                      Enquire Now
+                    </Button>
+                  </motion.div>
+                </motion.div>
               </motion.div>
             </div>
           </div>
