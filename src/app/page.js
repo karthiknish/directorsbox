@@ -23,6 +23,29 @@ export default function Home() {
   const [isMobile, setIsMobile] = useState(false);
   const videosophieRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleEnquiryClick = async () => {
+    setLoading(true);
+    try {
+      // Send conversion event
+      await fetch("/api/meta-conversion", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          eventName: "Lead",
+          value: 0.0,
+          // We don't have user data at this point, so we're just tracking the event
+        }),
+      });
+    } catch (error) {
+      console.error("Failed to track enquiry:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
     // Set initial mobile state
@@ -1053,12 +1076,13 @@ export default function Home() {
                     <Button
                       size="lg"
                       className="bg-white text-gray-900 hover:bg-gray-100"
-                      onClick={() => {
+                      onClick={async () => {
                         sendGTMEvent({ event: "enquire_button_click" });
+                        await handleEnquiryClick();
                         setShowButton(false);
                       }}
                     >
-                      Enquire Now
+                      {loading ? "Processing..." : "Enquire Now"}
                     </Button>
                     <Button
                       size="lg"

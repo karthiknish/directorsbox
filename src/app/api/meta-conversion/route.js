@@ -25,7 +25,7 @@ async function sendToMetaAPI(eventData) {
 export async function POST(request) {
   try {
     const body = await request.json();
-    const { email, name, phone, eventName = "Purchase", value = 195.0 } = body;
+    const { email, name, phone, eventName = "Lead", value = 0.0 } = body;
 
     const eventData = {
       event_name: eventName,
@@ -44,6 +44,9 @@ export async function POST(request) {
       custom_data: {
         currency: "GBP",
         value: value,
+        content_name: "Directors Box Enquiry",
+        content_category: "Membership",
+        status: "initiated",
       },
     };
 
