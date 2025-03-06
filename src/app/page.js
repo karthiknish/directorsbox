@@ -10,6 +10,7 @@ import { sendGTMEvent } from "@next/third-parties/google";
 import Flowchart from "../components/flowchart";
 import LogoStrip from "../components/logostrip";
 import Perks from "../components/perks";
+import ContactForm from "../components/ContactForm";
 
 export default function Home() {
   const [playingStates, setPlayingStates] = useState({
@@ -19,7 +20,7 @@ export default function Home() {
     video3: false,
   });
   const playerRef = useRef(null);
-  const [showButton, setShowButton] = useState(true);
+  const [showButton, setShowButton] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const videosophieRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -326,7 +327,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 1 }}
             >
-              <motion.h3
+              {/* <motion.h3
                 className="text-2xl font-semibold mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -334,7 +335,7 @@ export default function Home() {
               >
                 Pay a joining fee of £195 and get your first month's membership
                 fee of £2,000 on us.
-              </motion.h3>
+              </motion.h3> */}
               <motion.p
                 className="text-sm text-gray-600 mb-4"
                 initial={{ opacity: 0, y: 20 }}
@@ -378,9 +379,9 @@ export default function Home() {
               viewport={{ once: true }}
             >
               Our Benefits
-              <span className="block text-xl mt-2 text-gray-600">
+              {/* <span className="block text-xl mt-2 text-gray-600">
                 Included in your £2,000 monthly membership
-              </span>
+              </span> */}
             </motion.h2>
             <motion.div
               className="grid md:grid-cols-3 gap-8"
@@ -918,116 +919,6 @@ export default function Home() {
           </div>
         </motion.section>
 
-        {/* <motion.section
-          className="py-24 bg-gray-50 rounded-3xl"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <div className="max-w-4xl mx-auto px-4">
-            <motion.h2
-              className="text-3xl md:text-4xl font-bold mb-12 text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              What Makes Directors Box Different
-            </motion.h2>
-            <motion.div
-              className="relative"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.8, staggerChildren: 0.2 }}
-              viewport={{ once: true }}
-            >
-             
-              <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-300 md:left-1/2" />
-
-              <div className="space-y-12">
-                <motion.div className="relative grid md:grid-cols-2 gap-8 md:gap-16">
-                  <div className="md:text-right md:pr-16">
-                    <motion.div
-                      className="bg-white p-8 rounded-xl shadow-sm"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <h3 className="text-xl font-bold mb-4">
-                        Bespoke Event Management
-                      </h3>
-                      <p className="text-gray-600">
-                        We curate and manage exclusive high-level networking
-                        events tailored to your business goals. From intimate
-                        roundtables to large-scale conferences, we handle
-                        everything from venue selection to attendee curation,
-                        ensuring meaningful connections are made.
-                      </p>
-                    </motion.div>
-                  </div>
-                  <div className="hidden md:block" />
-                
-                  <div className="absolute left-0 md:left-1/2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black rounded-full transform -translate-x-1/2 flex items-center justify-center">
-                    <span className="text-white text-sm">1</span>
-                  </div>
-                </motion.div>
-
-                <motion.div className="relative grid md:grid-cols-2 gap-8 md:gap-16">
-                  <div className="hidden md:block" />
-                  <div className="md:pl-16">
-                    <motion.div
-                      className="bg-white p-8 rounded-xl shadow-sm"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <h3 className="text-xl font-bold mb-4">
-                        Lead Generation
-                      </h3>
-                      <p className="text-gray-600">
-                        Our proprietary software automatically identifies and
-                        delivers targeted leads to expand your business network.
-                        The system analyses market data to connect you with
-                        high-value prospects, helping you efficiently reach
-                        untapped markets.
-                      </p>
-                    </motion.div>
-                  </div>
-                
-                  <div className="absolute left-0 md:left-1/2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black rounded-full transform -translate-x-1/2 flex items-center justify-center">
-                    <span className="text-white text-sm">2</span>
-                  </div>
-                </motion.div>
-
-                <motion.div className="relative grid md:grid-cols-2 gap-8 md:gap-16">
-                  <div className="md:text-right md:pr-16">
-                    <motion.div
-                      className="bg-white p-8 rounded-xl shadow-sm"
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <h3 className="text-xl font-bold mb-4">
-                        C-Suite Network Access
-                      </h3>
-                      <p className="text-gray-600">
-                        Gain direct access to our exclusive network of C-level
-                        executives and industry leaders. Connect with CEOs,
-                        CFOs, and other senior executives for mentorship,
-                        partnerships, and business opportunities. Leverage these
-                        high-value relationships to accelerate your business
-                        growth and strategic initiatives.
-                      </p>
-                    </motion.div>
-                  </div>
-                  <div className="hidden md:block" />
-                 
-                  <div className="absolute left-0 md:left-1/2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black rounded-full transform -translate-x-1/2 flex items-center justify-center">
-                    <span className="text-white text-sm">3</span>
-                  </div>
-                </motion.div>
-              </div>
-            </motion.div>
-          </div>
-        </motion.section> */}
         <motion.div className="text-center mb-16">
           <motion.h2
             className="text-4xl md:text-5xl font-bold mb-4"
@@ -1101,86 +992,18 @@ export default function Home() {
             >
               Limited membership spots available - Apply today
             </motion.p>
+
             <motion.div
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              className="bg-white border border-gray-200 rounded-xl relative"
               initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
             >
-              <AnimatePresence>
-                {showButton && (
-                  <>
-                    <Button
-                      size="lg"
-                      className="bg-white text-gray-900 hover:bg-gray-100"
-                      onClick={async () => {
-                        sendGTMEvent({ event: "enquire_button_click" });
-                        await handleEnquiryClick();
-                        setShowButton(false);
-                      }}
-                    >
-                      {loading ? "Processing..." : "Enquire Now"}
-                    </Button>
-                    <Button
-                      size="lg"
-                      className="bg-white text-gray-900 hover:bg-gray-100"
-                      onClick={() => {
-                        sendGTMEvent({ event: "payment_button_click" });
-                        setShowButton(false);
-                        window.location.href =
-                          "https://buy.stripe.com/dR63fIdWicIwf8A7ss";
-                      }}
-                    >
-                      Join Today for{" "}
-                      <span
-                        style={{ marginLeft: "5px", marginRight: "5px" }}
-                        className="line-through"
-                      >
-                        {" "}
-                        £500{" "}
-                      </span>{" "}
-                      £195
-                    </Button>
-                  </>
-                )}
-              </AnimatePresence>
+              <ContactForm />
             </motion.div>
-            <AnimatePresence>
-              {!showButton && (
-                <motion.div
-                  className="gfiframe bg-white border border-gray-200 rounded-xl relative"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <iframe
-                    src={`//profici.co.uk/gfembed/?f=10${window.location.search}`}
-                    width="100%"
-                    height="900px"
-                    frameBorder="0"
-                    className="gfiframe"
-                    onLoad={(e) => e.target.classList.add("loaded")}
-                  ></iframe>
-                  <div className="absolute inset-0 flex items-center justify-center bg-white transition-opacity duration-300 iframe-loading">
-                    <div className="w-12 h-12 border-4 border-gray-300 border-t-gray-900 rounded-full animate-spin"></div>
-                  </div>
-                  <style jsx>{`
-                    .iframe-loading {
-                      opacity: 1;
-                    }
-                    .loaded + .iframe-loading {
-                      opacity: 0;
-                      pointer-events: none;
-                    }
-                  `}</style>
-                </motion.div>
-              )}
-            </AnimatePresence>
           </div>
         </motion.section>
-        <Pdf />
+        {/* <Pdf /> */}
       </main>
     </motion.div>
   );
