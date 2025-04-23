@@ -34,11 +34,11 @@ export const metadata = {
   description:
     "Directors Box is an exclusive, high-level networking group for business leaders and entrepreneurs, offering premium connections, strategic partnerships, and collaborative opportunities in a confidential environment. Join fellow directors and decision-makers in this carefully curated business community focused on growth, innovation, and mutual success.",
   robots: {
-    index: true,
-    follow: true,
+    index: false,
+    follow: false,
     googleBot: {
-      index: true,
-      follow: true,
+      index: false,
+      follow: false,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
@@ -50,6 +50,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
+        <meta name="robots" content="noindex, nofollow" />
         <Script id="facebook-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
